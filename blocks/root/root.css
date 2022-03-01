@@ -8,4 +8,6 @@
   flex-wrap: wrap;
   flex-direction: column;
   color: red;
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  color: #fff;
 }
