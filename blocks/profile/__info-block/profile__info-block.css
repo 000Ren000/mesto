@@ -6,3 +6,9 @@
 
   margin-top: 39px;
 }
+
+@media screen and (max-width: 320px) {
+  .profile__info-block {
+    margin-top: 44px;
+  }
+}

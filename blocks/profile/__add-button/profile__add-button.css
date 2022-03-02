@@ -2,7 +2,7 @@
   border: 2px solid #fff;
   border-radius: 0;
   background-color: transparent;
-  background-image: url('../../../images/Plus.svg');
+  background-image: url("../../../images/Plus.svg");
   background-size: 22px;
   background-repeat: no-repeat;
   background-position: center;
@@ -10,3 +10,10 @@
   height: 50px;
   margin-top: 36px;
 }
+@media screen and (max-width: 536px) {
+  .profile__add-button {
+    margin-top: 32px;
+    width: 100%;
+  }
+}
+

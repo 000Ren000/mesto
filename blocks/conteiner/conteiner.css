@@ -15,4 +15,14 @@ h1 {
   margin: 0;
 }
 
+@media screen and (max-width: 536px) {
+  .conteiner {
+    max-width: 282px;
+  }
+}
 
+@media screen and (max-width: 1279px) {
+  .conteiner {
+    max-width: 90%;
+  }
+}

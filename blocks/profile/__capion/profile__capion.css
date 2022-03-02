@@ -1,9 +1,14 @@
 .profile__capion {
-      display: flex;
-      flex-flow: wrap column;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-right: 18px;
-
-
+  display: flex;
+  flex-flow: wrap column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-right: 18px;
+}
+@media screen and (max-width: 320px) {
+  .profile__capion {
+    margin-top: 23px;
+    margin-right: 10px;
+    align-items: center;
+  }
 }
