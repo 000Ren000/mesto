@@ -1,12 +1,9 @@
 .header__logo {
- width: 142px;
- height: 33px;
- /* background-image: url('../../../images/logo.svg'); */
- background-repeat: no-repeat;
- background-size: contain;
- margin-top: 45px;
- margin-bottom: 41px;
- margin-left: 2px;
+  width: 142px;
+  height: 33px;
+  /* background-image: url('../../../images/logo.svg'); */
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-top: 45px;
+  margin-bottom: 41px;
 }
-
-
