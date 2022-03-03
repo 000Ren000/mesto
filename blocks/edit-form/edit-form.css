@@ -10,6 +10,15 @@
   box-sizing: border-box;
   position: relative;
 }
+
+@media screen and (max-width: 520px) {
+  .edit-form {
+    width: 282px;
+    height: 322px;
+    padding: 0 22px 0 22px;
+  }
+}
+
 .edit-form__title {
   width: 100%;
   font-family: Inter;
@@ -17,9 +26,18 @@
   font-weight: 900;
   font-size: 24px;
   line-height: 29px;
+  margin-top: 34px;
   margin-bottom: 45px;
   color: #000000;
-  margin-top: 34px;
+
+}
+@media screen and (max-width: 520px) {
+  .edit-form__title {
+    margin-top: 26px;
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 69px;
+  }
 }
 .edit-form__Name {
   width: 100%;
@@ -34,6 +52,11 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
+}
+@media screen and (max-width: 520px) {
+ .edit-form__Name {
+   vertical-align: text-top;
+ }
 }
 .edit-form__profession {
   width: 100%;
@@ -58,15 +81,30 @@
   height: 50px;
   color: #fff;
 }
+
+@media screen and (max-width: 520px) {
+  .edit-form__button-save {
+    height: 46px;
+  }
+}
 .edit-form__button-close {
   width: 32px;
   height: 32px;
   border: none;
   background-color: transparent;
   background-image: url("../../images/Close-Icon.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
 
   position: absolute;
   top: 0;
   right: 0;
   transform: translate(calc(100% + 8px), calc(-100% - 8px));
+}
+@media screen and (max-width: 520px) {
+  .edit-form__button-close {
+    width: 20px;
+    height: 20px;
+    transform: translatey(calc(-100% - 16px));
+  }
 }
