@@ -1,90 +1,126 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
-</head>
-<body class="root">
-  <header class="header conteiner">
-    <img class="header__logo" src="./images/logo.svg" alt="Логотип"/>
-  </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="root">
+    <header class="header conteiner">
+      <img class="header__logo" src="./images/logo.svg" alt="Логотип" />
+    </header>
 
-  <main class="main conteiner">
-    <section class="profile ">
-      <div class="profile__info-block">
-        <img class="profile__avatar" alt="Фото профиля" src="./images/Avatar.jpg"/>
-        <div class="profile__info">
-          <div class="profile__capion">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <p class="profile__profession">Исследователь океана</p>
+    <main class="main conteiner">
+      <section class="profile">
+        <div class="profile__info-block">
+          <img
+            class="profile__avatar"
+            alt="Фото профиля"
+            src="./images/Avatar.jpg"
+          />
+          <div class="profile__info">
+            <div class="profile__capion">
+              <h1 class="profile__name">Жак-Ив Кусто</h1>
+              <p class="profile__profession">Исследователь океана</p>
+            </div>
+            <button class="profile__edit-button link"></button>
           </div>
-          <button class="profile__edit-button link"></button>
         </div>
+        <button class="profile__add-button link"></button>
+      </section>
+      <section class="photo">
+        <ul class="photo__cards">
+          <li class="card">
+            <img
+              src="./images/Karachevsk.jpg"
+              class="card__image"
+              alt="изоображение памятника в виде заброшенной церкви"
+            />
+            <div class="card__description">
+              <div class="card__title">Карачаевск</div>
+              <button class="card__button-like link"></button>
+            </div>
+          </li>
+
+          <li class="card">
+            <img
+              src="./images/Elbrus.jpg"
+              class="card__image"
+              alt="изоображен оранжевый закат"
+            />
+            <div class="card__description">
+              <div class="card__title">Гора Эльбрус</div>
+              <button
+                class="card__button-like link card__button-like_active"
+              ></button>
+            </div>
+          </li>
+
+          <li class="card">
+            <img
+              src="./images/Dombai.jpg"
+              class="card__image"
+              alt="изоображен изообажена снежная гора на фоне бордовых елок"
+            />
+            <div class="card__description">
+              <div class="card__title">Домбай</div>
+              <button class="card__button-like link"></button>
+            </div>
+          </li>
+
+          <li class="card">
+            <img
+              src="./images/Elbrus.jpg"
+              class="card__image"
+              alt="изоображен оранжевый закат"
+            />
+            <div class="card__description">
+              <div class="card__title">Гора Эльбрус</div>
+              <button class="card__button-like link"></button>
+            </div>
+          </li>
+
+          <li class="card">
+            <img
+              src="./images/Dombai.jpg"
+              class="card__image"
+              alt="изоображен изообажена снежная гора на фоне бордовых елок"
+            />
+            <div class="card__description">
+              <div class="card__title">Домбай</div>
+              <button class="card__button-like link"></button>
+            </div>
+          </li>
+
+          <li class="card">
+            <img
+              src="./images/Karachevsk.jpg"
+              class="card__image"
+              alt="изоображение памятника в виде заброшенной церкви"
+            />
+            <div class="card__description">
+              <div class="card__title">Карачаево-Ч...</div>
+              <button class="card__button-like link"></button>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer conteiner">
+      <p class="footer__text">© 2020 Mesto Russia</p>
+    </footer>
+
+    <section class="popap">
+      <div class="edit-form">
+        <h2 class="edit-form__title">Редактировать профиль</h2>
+        <input type="text" class="edit-form__Name" value="Жак-Ив Кусто" />
+        <input type="text" class="edit-form__profession" value="Исследователь океана"></input>
+        <button class="edit-form__button-save link">Сохранить</button>
+        <button class="edit-form__button-close link"></button>
       </div>
-      <button class="profile__add-button link"></button>
     </section>
-    <section class="photo ">
-
-      <ul class="photo__cards">
-
-        <li class="card">
-          <img src="./images/Karachevsk.jpg" class="card__image"
-            alt="изоображение памятника в виде заброшенной церкви"/>
-          <div class="card__description">
-            <div class="card__title">Карачаевск</div>
-            <button class="card__button-like link"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Elbrus.jpg" class="card__image" alt="изоображен оранжевый закат"/>
-          <div class="card__description">
-            <div class="card__title">Гора Эльбрус</div>
-            <button class="card__button-like link card__button-like_active"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Dombai.jpg" class="card__image" alt="изоображен изообажена снежная гора на фоне бордовых елок" />
-          <div class="card__description">
-            <div class="card__title">Домбай</div>
-            <button class="card__button-like link"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Elbrus.jpg" class="card__image" alt="изоображен оранжевый закат" />
-          <div class="card__description">
-            <div class="card__title">Гора Эльбрус</div>
-            <button class="card__button-like link"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Dombai.jpg" class="card__image" alt="изоображен изообажена снежная гора на фоне бордовых елок" />
-          <div class="card__description">
-            <div class="card__title">Домбай</div>
-            <button class="card__button-like link"></button>
-          </div>
-        </li>
-
-        <li class="card">
-          <img src="./images/Karachevsk.jpg" class="card__image" alt="изоображение памятника в виде заброшенной церкви" />
-          <div class="card__description">
-            <div class="card__title">Карачаево-Ч...</div>
-            <button class="card__button-like link"></button>
-          </div>
-        </li>
-
-      </ul>
-    </section>
-  </main>
-  <footer class="footer conteiner">
-    <p class="footer__text">© 2020 Mesto Russia</p>
-  </footer>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
-

@@ -43,3 +43,10 @@
 /* footer */
 @import url('../blocks/footer/footer.css');
   @import url('../blocks/footer/__text/footer__text.css');
+
+  /* edit-form */
+  @import url('../blocks/edit-form/edit-form.css');
+
+  /* popap */
+@import url('../blocks/popap/popap.css');
+

@@ -15,7 +15,9 @@ button {
 h1 {
   margin: 0;
 }
-
+h2 {
+  margin: 0;
+}
 ul {
   margin: 0;
   padding: 0;
@@ -25,7 +27,9 @@ li {
   margin: 0;
   padding: 0;
 }
-
+input {
+  padding: 0;
+}
 @media screen and (max-width: 880px) {
   .conteiner {
     max-width: 282px;
