@@ -1,4 +1,6 @@
 .card__image {
   background-size: contain;
   width: 282px;
+  height: 282px;
+  background-color: darkslategray;;
 }

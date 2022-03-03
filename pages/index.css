@@ -11,6 +11,9 @@
 @import url('../blocks/header/header.css');
   @import url('../blocks/header/__logo/header__logo.css');
 
+  /* main */
+@import url('../blocks/main/main.css');
+
   /* profile */
 @import url('../blocks/profile/profile.css');
   @import url('../blocks/profile/__info/profile__info.css');
@@ -33,5 +36,6 @@
   @import url('../blocks/card/__image/card__image.css');
   @import url('../blocks/card/__title/card__title.css');
 
-
-
+/* footer */
+@import url('../blocks/footer/footer.css');
+  @import url('../blocks/footer/__text/footer__text.css');

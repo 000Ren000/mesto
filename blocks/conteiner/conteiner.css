@@ -3,6 +3,7 @@
   max-width: 880px;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 p {
@@ -25,9 +26,10 @@ li {
   padding: 0;
 }
 
-@media screen and (max-width: 536px) {
+@media screen and (max-width: 880px) {
   .conteiner {
     max-width: 282px;
+    /* max-width: 94%; */
   }
 }
 
