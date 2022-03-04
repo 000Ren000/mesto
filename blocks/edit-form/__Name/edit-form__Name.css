@@ -11,6 +11,10 @@
   font-size: 14px;
   line-height: 17px;
   color: #000000;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 @media screen and (max-width: 520px) {
  .edit-form__Name {

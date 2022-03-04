@@ -53,6 +53,6 @@
     @import url('../blocks/edit-form/__button-close/edit-form__button-close.css');
 
   /* popap */
-@import url('../blocks/popap/popap.css');
-  @import url('../blocks/popap/_hidden/popap_hidden.css');
+@import url('../blocks/popup/popup.css');
+  @import url('../blocks/popup/_opened/popup_opened.css');
 

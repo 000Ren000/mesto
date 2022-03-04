@@ -1,5 +1,5 @@
-const popap = document.querySelector(".popap");
-const form = popap.querySelector(".edit-form");
+const popup = document.querySelector(".popup");
+const form = popup.querySelector(".edit-form");
 
 let entryName = form.querySelector(".edit-form__Name");
 let entryProfesion = form.querySelector(".edit-form__profession");
@@ -37,11 +37,14 @@ btnClose.addEventListener("click", togleForm);
 editForm.addEventListener("click", togleForm);
 
 function togleForm() {
-  popap.classList.toggle("popap_hidden");
+  popup.classList.toggle("popup_opened");
 }
 
-popap.addEventListener("click", function (event) {
+popup.addEventListener("click", function (event) {
   if (event.target === event.currentTarget) {
     togleForm();
   }
 });
+
+
+
