@@ -23,6 +23,7 @@ btnSave.addEventListener("click", saved);
 function saved() {
   editName.textContent = entryName.value;
   editProfession.textContent = entryProfesion.value;
+  togleForm();
 }
 
 // //Поставить лайк
