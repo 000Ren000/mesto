@@ -16,6 +16,6 @@
   .edit-form__button-close {
     width: 20px;
     height: 20px;
-    transform: translatey(calc(-100% - 16px));
+    transform: translateY(calc(-100% - 16px));
   }
 }
