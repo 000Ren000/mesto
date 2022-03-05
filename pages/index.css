@@ -47,7 +47,7 @@
   /* edit-form */
   @import url('../blocks/edit-form/edit-form.css');
     @import url('../blocks/edit-form/__title/edit-form__title.css');
-    @import url('../blocks/edit-form/__Name/edit-form__Name.css');
+    @import url('../blocks/edit-form/__name/edit-form__name.css');
     @import url('../blocks/edit-form/__profession/edit-form__profession.css');
     @import url('../blocks/edit-form/__button-save/edit-form__button-save.css');
     @import url('../blocks/edit-form/__button-close/edit-form__button-close.css');
