@@ -71,8 +71,9 @@ listButtonlike.forEach((element) => {
 btnClose.addEventListener("click", function () {
   popup.classList.remove("popup__opened");
 });
+
 editForm.addEventListener("click", openPopup);
-console.log(btnClose);
+
 function togleForm() {
   popup.classList.toggle("popup_opened");
 }
