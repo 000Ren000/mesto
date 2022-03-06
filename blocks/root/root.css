@@ -4,7 +4,6 @@
   margin-right: auto;
   background-color: #000;
   display: flex;
-  flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
   font-family: Inter, "Helvetica Neue", Arial, sans-serif;
