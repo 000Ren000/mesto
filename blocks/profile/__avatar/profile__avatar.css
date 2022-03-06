@@ -3,4 +3,10 @@
   max-width: 120px;
   max-height: 120px;
   background-size: contain;
+   margin-top: 39px;
+}
+@media screen and (max-width: 589px) {
+  .profile__avata {
+    margin-top: 44px;
+  }
 }
