@@ -56,9 +56,13 @@ const param = {
 profilePopupName.value = profileName.textContent;
 profilePopupProfession.value = profileProfession.textContent;
 
+const createCard = (item, selector, revers = false) => {
+  const card = new Card(item, selector);
+  card.renderCard(revers);
+}
+
 initialCards.forEach(item => {
- const card = new Card(item, '#photo__card');
- card.renderCard();
+ createCard(item, '#photo__card');
 });
 
 
@@ -110,8 +114,7 @@ cardPopup.addEventListener('submit', function (event) {
     name: cardName.value,
     link: cardLink.value
   }
-  const card = new Card(cardValue, '#photo__card');
-  card.renderCard(true);
+  createCard(cardValue, '#photo__card', true);
   closePopup(cardPopup);
   cardName.value = '';
   cardLink.value = '';
