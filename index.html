@@ -135,18 +135,19 @@
 
     <div class="popup">
       <div class="popup__conteiner">
-        <form name="edit-form" class="edit-form">
+        <form name="editForm" class="edit-form">
           <h2 class="edit-form__title">Редактировать профиль</h2>
-          <input type="text" class="edit-form__name" />
-          <input type="text" class="edit-form__profession" />
+          <input name="editFormName" type="text" class="entry entry_type_name" />
+          <input name="editFormProfession" type="text" class="entry entry_type_profession" />
           <button
             type="submit"
             class="edit-form__button-save link link_intensity_hard">Сохранить</button>
-          <button
-            class="edit-form__button-close link link_intensity_midl"></button>
         </form>
+        <button
+            class="edit-form__button-close link link_intensity_midl"
+            type="button"></button>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="scripts/index.js"></script>
   </body>
 </html>

@@ -1,9 +1,9 @@
-.edit-form__profession {
+.entry_type_profession {
   margin-bottom: 48px;
 }
 
 @media screen and (max-width: 320px) {
-  .edit-form__profession {
+  .entry_type_profession {
     margin-bottom: 44px;
   }
 }
