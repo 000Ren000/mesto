@@ -19,7 +19,7 @@ let btnClose = formElement.querySelector('.edit-form__button-close');
 function openPopup() {
   jobInput.value = editProfession.textContent;
   nameInput.value = editName.textContent;
-  openForm();
+  togleForm();
 }
 
 // Обработчик «отправки» формы
@@ -27,30 +27,25 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   editName.textContent = nameInput.value;
   editProfession.textContent = jobInput.value;
-  closeForm();
+  togleForm();
 }
 
-//Открыть форму
-function openForm() {
-  popup.classList.add('popup_opened');
+function togleForm() {
+  if (!popup.classList.contains('popup_opened')) {
+    popup.classList.add('popup_opened');
+  } else popup.classList.remove('popup_opened');
 }
-//Закрыть форму
-function closeForm() {
-  popup.classList.remove('popup_opened');
-}
+
 // Прикрепляем обработчик к форме:
 formElement.addEventListener('submit', formSubmitHandler);
 
 // Закрытие окна
-btnClose.addEventListener('click', closeForm);
+btnClose.addEventListener('click', togleForm);
 
 editForm.addEventListener('click', openPopup);
 
 popup.addEventListener('click', function (event) {
   if (event.target === event.currentTarget) {
-    closeForm();
+    togleForm();
   }
 });
-
-
-
