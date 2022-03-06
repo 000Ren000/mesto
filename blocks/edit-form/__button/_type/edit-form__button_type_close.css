@@ -1,9 +1,8 @@
 .edit-form__button_type_close {
   width: 32px;
   height: 32px;
-  border: none;
   background-color: transparent;
-  background-image: url('../../../images/Close-Icon.svg');
+  background-image: url('../../../../images/Close-Icon.svg');
   background-size: contain;
   background-repeat: no-repeat;
 
@@ -11,12 +10,4 @@
   top: 0;
   right: 0;
   transform: translate(calc(100% + 8px), calc(-100% - 8px));
-}
-
-@media screen and (max-width: 520px) {
-  .edit-form__button_type_close {
-    font-size: 14px;
-    line-height: 17px;
-    height: 46px;
-  }
 }
