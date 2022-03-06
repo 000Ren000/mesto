@@ -14,19 +14,26 @@
 
     <main class="main conteiner">
       <section class="profile">
-          <img
-            class="profile__avatar"
-            alt="Фото профиля"
-            src="./images/Avatar.jpg"
-          />
-          <div class="profile__info">
-            <div class="profile__capion">
-              <h1 class="profile__name">Жак-Ив Кусто</h1>
-              <p class="profile__profession">Исследователь океана</p>
-            </div>
-            <button type="button" class="profile__edit-button link link_intensity_midl"> </button>
+        <img
+          class="profile__avatar"
+          alt="Фото профиля"
+          src="./images/Avatar.jpg"
+        />
+        <div class="profile__info">
+          <div class="profile__capion">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <p class="profile__profession">Исследователь океана</p>
           </div>
-        <button type="button" class="profile__add-button link link_intensity_midl"></button>
+          <button
+            type="button"
+            class="profile__edit-button link link_intensity_midl"
+          >
+          </button>
+        </div>
+        <button
+          type="button"
+          class="profile__add-button link link_intensity_midl"
+        ></button>
       </section>
       <section class="photo">
         <ul class="photo__cards">
@@ -38,7 +45,10 @@
             />
             <div class="card__description">
               <p class="card__title">Абакан</p>
-              <button type="button" class="card__button-like link link_intensity_low"></button>
+              <button
+                type="button"
+                class="card__button-like link link_intensity_low"
+              ></button>
             </div>
           </li>
 
@@ -50,7 +60,10 @@
             />
             <div class="card__description">
               <p class="card__title">Республика Хакасия</p>
-              <button type="button" class="card__button-like link link_intensity_low"></button>
+              <button
+                type="button"
+                class="card__button-like link link_intensity_low"
+              ></button>
             </div>
           </li>
 
@@ -62,7 +75,10 @@
             />
             <div class="card__description">
               <p class="card__title">Красноярск</p>
-              <button type="button" class="card__button-like link link_intensity_low"></button>
+              <button
+                type="button"
+                class="card__button-like link link_intensity_low"
+              ></button>
             </div>
           </li>
 
@@ -74,7 +90,10 @@
             />
             <div class="card__description">
               <p class="card__title">Гора Эльбрус</p>
-              <button type="button" class="card__button-like link link_intensity_low"></button>
+              <button
+                type="button"
+                class="card__button-like link link_intensity_low"
+              ></button>
             </div>
           </li>
 
@@ -86,7 +105,10 @@
             />
             <div class="card__description">
               <p class="card__title">Домбай</p>
-              <button type="button" class="card__button-like link link_intensity_low"></button>
+              <button
+                type="button"
+                class="card__button-like link link_intensity_low"
+              ></button>
             </div>
           </li>
 
@@ -98,7 +120,10 @@
             />
             <div class="card__description">
               <p class="card__title">Карачаево-Черкессия</p>
-              <button type="button" class="card__button-like link link_intensity_low"></button>
+              <button
+                type="button"
+                class="card__button-like link link_intensity_low"
+              ></button>
             </div>
           </li>
         </ul>
@@ -108,17 +133,20 @@
       <p class="footer__text">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <form class="popup">
-      <div class="edit-form">
-        <h2 class="edit-form__title">Редактировать профиль</h2>
-        <input type="text" class="edit-form__name" />
-        <input type="text" class="edit-form__profession" />
-        <button type="submit" class="edit-form__button-save link link_intensity_hard"
-          >Сохранить</button
-        >
-        <button class="edit-form__button-close link link_intensity_midl"></button>
+    <div class="popup">
+      <div class="popup__conteiner">
+        <form class="edit-form">
+          <h2 class="edit-form__title">Редактировать профиль</h2>
+          <input type="text" class="edit-form__name" />
+          <input type="text" class="edit-form__profession" />
+          <button
+            type="submit"
+            class="edit-form__button-save link link_intensity_hard">Сохранить</button>
+          <button
+            class="edit-form__button-close link link_intensity_midl"></button>
+        </form>
       </div>
-    </form>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>
