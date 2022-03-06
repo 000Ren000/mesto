@@ -1,4 +1,4 @@
-.edit-form__button-save {
+.edit-form__save {
   width: 100%;
   background-color: #000;
   border: none;
@@ -15,7 +15,7 @@
 }
 
 @media screen and (max-width: 520px) {
-  .edit-form__button-save {
+  .edit-form__save {
     font-size: 14px;
     line-height: 17px;
     height: 46px;
