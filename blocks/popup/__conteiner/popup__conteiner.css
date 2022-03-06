@@ -2,7 +2,8 @@
   padding: 0;
   width: 430px;
   min-height: 330px;
-  padding: 0 36px;
+  padding-left: 36px;
+  padding-right: 36px;
   background-color: #fff;
   border-radius: 10px;
   display: flex;
