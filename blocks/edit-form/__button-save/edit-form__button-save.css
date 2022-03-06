@@ -3,11 +3,21 @@
   background-color: #000;
   border: none;
   height: 50px;
-  color: #fff;
+
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+
+  color: #ffffff;
 }
 
 @media screen and (max-width: 520px) {
   .edit-form__button-save {
+    font-size: 14px;
+    line-height: 17px;
     height: 46px;
   }
 }

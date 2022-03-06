@@ -1,6 +1,7 @@
 .profile__profession {
+  margin: 0;
   width: 100%;
-  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  font-family: Inter, 'Helvetica Neue', Arial, sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;

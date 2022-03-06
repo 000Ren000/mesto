@@ -1,4 +1,6 @@
 .photo__cards {
+  margin: 0;
+  padding: 0;
   list-style: none;
   padding-top: 50px;
 
@@ -9,7 +11,7 @@
   justify-content: center;
 }
 @media screen and (max-width: 320px) {
- .photo__cards {
-   padding-top: 38px;
- }
+  .photo__cards {
+    padding-top: 38px;
+  }
 }
