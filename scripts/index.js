@@ -12,8 +12,8 @@ let formElement = document.querySelector('.popup'); // Воспользуйте�
 let nameInput = formElement.querySelector('.entry_type_name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = formElement.querySelector('.entry_type_profession'); // Воспользуйтесь инструментом .querySelector()
 
-let btnSave = formElement.querySelector('.edit-form__button_type_save');
-let btnClose = formElement.querySelector('.edit-form__button_type_close');
+let btnSave = formElement.querySelector('edit-form__button-save');
+let btnClose = formElement.querySelector('.popup__button-close');
 
 // Открытие формы
 function openPopup() {

@@ -1,7 +1,8 @@
-.edit-form__button_type_save {
+.edit-form__button-save {
   width: 100%;
   background-color: #000;
   height: 50px;
+  border: none;
 
   font-family: Inter, Arial, Helvetica, sans-serif;
   font-style: normal;

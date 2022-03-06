@@ -48,13 +48,13 @@
 @import url('../blocks/edit-form/edit-form.css');
 @import url('../blocks/edit-form/__title/edit-form__title.css');
 @import url('../blocks/edit-form/__button/edit-form__button.css');
-@import url('../blocks/edit-form/__button/_type/edit-form__button_type_close.css');
-@import url('../blocks/edit-form/__button/_type/edit-form__button_type_save.css');
+@import url('../blocks/edit-form/__button-save/edit-form__button-save.css');
 
 /* popap */
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__conteiner/popup__conteiner.css');
+@import url('../blocks/popup/__button-close/popup__button-close.css');
 
 /* entry */
 @import url('../blocks/entry/entry.css');
