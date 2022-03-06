@@ -1,7 +1,9 @@
 .card__description {
+    max-width: 246px;
+    max-height: 23px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    margin: 23px 19px 75px 21px;
+    margin: 25px 15px 31px 21px;
 }
