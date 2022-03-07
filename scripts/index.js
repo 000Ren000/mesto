@@ -1,7 +1,5 @@
 const popup = document.querySelector('.popup');
 
-const card = document.querySelector('.photo__cards');
-
 let editForm = document.querySelector('.profile__edit-button');
 let editName = document.querySelector('.profile__name');
 let editProfession = document.querySelector('.profile__profession');
