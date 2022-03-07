@@ -47,7 +47,6 @@
 /* edit-form */
 @import url('../blocks/edit-form/edit-form.css');
 @import url('../blocks/edit-form/__title/edit-form__title.css');
-@import url('../blocks/edit-form/__button/edit-form__button.css');
 @import url('../blocks/edit-form/__button-save/edit-form__button-save.css');
 
 /* popap */

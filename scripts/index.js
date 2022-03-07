@@ -1,11 +1,11 @@
 const popup = document.querySelector('.popup');
 
-let editForm = document.querySelector('.profile__edit-button');
+let buttonEditProfile = document.querySelector('.profile__edit-button');
 let editName = document.querySelector('.profile__name');
 let editProfession = document.querySelector('.profile__profession');
 
 // Находим форму в DOM
-let formElement = document.querySelector('.popup'); // Воспользуйтесь методом querySelector()
+let formElement = document.querySelector('.edit-form'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
 let nameInput = formElement.querySelector('.entry_type_name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = formElement.querySelector('.entry_type_profession'); // Воспользуйтесь инструментом .querySelector()
@@ -40,7 +40,7 @@ formElement.addEventListener('submit', formSubmitHandler);
 // Закрытие окна
 btnClose.addEventListener('click', togleForm);
 
-editForm.addEventListener('click', openPopup);
+buttonEditProfile.addEventListener('click', openPopup);
 
 popup.addEventListener('click', function (event) {
   if (event.target === event.currentTarget) {
