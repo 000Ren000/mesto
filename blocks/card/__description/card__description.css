@@ -1,6 +1,6 @@
 .card__description {
     max-width: 246px;
-    max-height: 23px;
+    min-height: 23px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
