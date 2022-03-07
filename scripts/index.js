@@ -10,13 +10,13 @@ let formElement = document.querySelector('.edit-form'); // Воспользуй�
 let nameInput = formElement.querySelector('.entry_type_name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = formElement.querySelector('.entry_type_profession'); // Воспользуйтесь инструментом .querySelector()
 
-let btnClose = formElement.querySelector('.popup__button-close');
+let btnClose = document.querySelector('.popup__button-close');
 
 // Открытие формы
 function openPopup() {
   jobInput.value = editProfession.textContent;
   nameInput.value = editName.textContent;
-  togleForm();
+  popup.classList.add('popup_opened');
 }
 
 // Обработчик «отправки» формы
@@ -24,25 +24,23 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   editName.textContent = nameInput.value;
   editProfession.textContent = jobInput.value;
-  togleForm();
+  closePopup();
 }
 
-function togleForm() {
-  if (!popup.classList.contains('popup_opened')) {
-    popup.classList.add('popup_opened');
-  } else popup.classList.remove('popup_opened');
+function closePopup() {
+  popup.classList.remove('popup_opened');
 }
 
 // Прикрепляем обработчик к форме:
 formElement.addEventListener('submit', formSubmitHandler);
 
 // Закрытие окна
-btnClose.addEventListener('click', togleForm);
+btnClose.addEventListener('click', closePopup);
 
 buttonEditProfile.addEventListener('click', openPopup);
 
 popup.addEventListener('click', function (event) {
   if (event.target === event.currentTarget) {
-    togleForm();
+    closePopup();
   }
 });
