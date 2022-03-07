@@ -10,7 +10,6 @@ let formElement = document.querySelector('.edit-form'); // Воспользуй�
 let nameInput = formElement.querySelector('.entry_type_name'); // Воспользуйтесь инструментом .querySelector()
 let jobInput = formElement.querySelector('.entry_type_profession'); // Воспользуйтесь инструментом .querySelector()
 
-let btnSave = formElement.querySelector('edit-form__button-save');
 let btnClose = formElement.querySelector('.popup__button-close');
 
 // Открытие формы
