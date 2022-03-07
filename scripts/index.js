@@ -39,8 +39,3 @@ btnClose.addEventListener('click', closePopup);
 
 buttonEditProfile.addEventListener('click', openPopup);
 
-popup.addEventListener('click', function (event) {
-  if (event.target === event.currentTarget) {
-    closePopup();
-  }
-});
