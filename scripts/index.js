@@ -7,8 +7,8 @@ let editProfession = document.querySelector('.profile__profession');
 // Находим форму в DOM
 let formElement = document.querySelector('.edit-form'); // Воспользуйтесь методом querySelector()
 // Находим поля формы в DOM
-let nameInput = formElement.querySelector('.entry_type_name'); // Воспользуйтесь инструментом .querySelector()
-let jobInput = formElement.querySelector('.entry_type_profession'); // Воспользуйтесь инструментом .querySelector()
+let nameInput = formElement.querySelector('.edit-form__input_type_name'); // Воспользуйтесь инструментом .querySelector()
+let jobInput = formElement.querySelector('.edit-form__input_type_profession'); // Воспользуйтесь инструментом .querySelector()
 
 let btnClose = document.querySelector('.popup__button-close');
 
