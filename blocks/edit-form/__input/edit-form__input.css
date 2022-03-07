@@ -13,7 +13,7 @@
   line-height: 17px;
   color: #000000;
 }
-.edit-form__input:last-child {
+.edit-form__input:last-of-type {
   margin-bottom: 48px;
 }
 @media screen and (max-width: 320px) {
