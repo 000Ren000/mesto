@@ -63,6 +63,35 @@
 
 
     <div class="popup" id="add-Form">
+<!--      <div class="popup__conteiner">-->
+<!--        <form name="editForm" class="edit-form">-->
+<!--          <h2 class="edit-form__title">Новое место</h2>-->
+<!--          <input name="editFormName" placeholder="Название" type="text" class="edit-form__input edit-form__input_type_name" />-->
+<!--          <input name="editFormProfession" placeholder="Ссылка на картинку" type="text" class="edit-form__input edit-form__input_type_profession" />-->
+<!--          <button-->
+<!--            type="submit"-->
+<!--            class="edit-form__button-save"-->
+<!--          >Создать</button-->
+<!--          >-->
+<!--        </form>-->
+<!--        <button type="button" aria-label="Закрыть"-->
+<!--                class="popup__button-close link"></button>-->
+<!--      </div>-->
+
+    </div>
+
+
+    <template id="photo__card" >
+      <li class="card">
+        <img src="#"  class="card__image" alt="Вид сверху на кород"/>
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__button-like"></button>
+        </div>
+      </li>
+    </template>
+
+    <template id="add-card">
       <div class="popup__conteiner">
         <form name="editForm" class="edit-form">
           <h2 class="edit-form__title">Новое место</h2>
@@ -77,17 +106,6 @@
         <button type="button" aria-label="Закрыть"
                 class="popup__button-close link"></button>
       </div>
-    </div>
-
-
-    <template id="photo__card" >
-      <li class="card">
-        <img src="#"  class="card__image" alt="Вид сверху на кород"/>
-        <div class="card__description">
-          <h2 class="card__title"></h2>
-          <button type="button" class="card__button-like"></button>
-        </div>
-      </li>
     </template>
     <script src="./scripts/index.js"></script>
   </body>

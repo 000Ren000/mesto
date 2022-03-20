@@ -37,12 +37,13 @@ const initialCards = [
 
 const photoCards = document.querySelector('.photo__cards');
 
-initialCards.forEach( crd => {
+initialCards.forEach(crd => {
   const photoCard = document.querySelector('#photo__card').content;
   const card = photoCard.querySelector('.card').cloneNode(true);
   card.querySelector('.card__image').src = crd.link;
   card.querySelector('.card__title').textContent = crd.name;
-  photoCards.append(card);})
+  photoCards.append(card);
+})
 
 btnEditProfile.addEventListener('click', () => openForm1(editForm));
 btnAddCard.addEventListener('click', () => openForm2(addForm))
@@ -59,7 +60,7 @@ function openForm1(popup) {
 
   btnClose.addEventListener('click', () => closeForm(popup));
 
-    form.addEventListener('submit', function formSubmitHandler(evt) {
+  form.addEventListener('submit', function formSubmitHandler(evt) {
     evt.preventDefault();
     editName.textContent = name.value;
     editProfession.textContent = prof.value;
@@ -70,11 +71,15 @@ function openForm1(popup) {
 
 function openForm2(popup) {
   popup.classList.add('popup_opened');
-  const name = popup.querySelector('.edit-form__input_type_name');
-  const link = popup.querySelector('.edit-form__input_type_profession');
-  const btnClose = popup.querySelector('.popup__button-close');
-  const form = popup.querySelector('.edit-form');
-  form.addEventListener('submit', function(evt) {
+
+  const sample = document.querySelector('#add-card').content;
+  const container = sample.querySelector('.popup__conteiner').cloneNode(true);
+  addForm.append(container);
+  const name = container.querySelector('.edit-form__input_type_name');
+  const link = container.querySelector('.edit-form__input_type_profession');
+  const btnClose = container.querySelector('.popup__button-close');
+  const form = container.querySelector('.edit-form');
+  form.addEventListener('submit',function(evt) {
     evt.preventDefault();
     const photoCard = document.querySelector('#photo__card').content;
     const card = photoCard.querySelector('.card').cloneNode(true);
@@ -82,12 +87,10 @@ function openForm2(popup) {
     card.querySelector('.card__title').textContent = name.value;
     photoCards.prepend(card);
     closeForm(popup);
-    // name.value ='';
-    // link.value = '';
-    console.log('Hey');
-  })
+    form.closest('.popup__conteiner').remove();
+  });
 
-  btnClose.addEventListener('click', () => closeForm(form));
+  btnClose.addEventListener('click', () => closeForm(popup));
 }
 
 function closeForm(form) {
