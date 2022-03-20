@@ -12,6 +12,43 @@ let jobInput = formElement.querySelector('.edit-form__input_type_profession'); /
 
 let btnClose = document.querySelector('.popup__button-close');
 
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
+  },
+];
+
+const photoCards = document.querySelector('.photo__cards');
+
+initialCards.forEach( crd => {
+  const photoCard = document.querySelector('#photo__card').content;
+  const card = photoCard.querySelector('.card').cloneNode(true);
+  card.querySelector('.card__image').src = crd.link;
+  card.querySelector('.card__title').textContent = crd.name;
+  photoCards.append(card);
+  console.log(card);
+})
 // Открытие формы
 function openPopup() {
   jobInput.value = editProfession.textContent;

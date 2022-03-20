@@ -37,95 +37,6 @@
       </section>
       <section class="photo">
         <ul class="photo__cards">
-          <li class="card">
-            <img
-              src="./images/Abakan.jpg"
-              class="card__image"
-              alt="Вид сверху на кород"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Абакан</h2>
-              <button
-                type="button"
-                class="card__button-like"
-              ></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              src="./images/Khakasia.jpg"
-              class="card__image"
-              alt="Вид сверху на платину СШГЭС"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Республика Хакасия</h2>
-              <button
-                type="button"
-                class="card__button-like"
-              ></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              src="./images/Krasnoyarsk.jpg"
-              class="card__image"
-              alt="Вид на город Красноярск"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Красноярск</h2>
-              <button
-                type="button"
-                class="card__button-like"
-              ></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              src="./images/Elbrus.jpg"
-              class="card__image"
-              alt="изоображен оранжевый закат"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Гора Эльбрус</h2>
-              <button
-                type="button"
-                class="card__button-like"
-              ></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              src="./images/Dombai.jpg"
-              class="card__image"
-              alt="изоображен изообажена снежная гора на фоне бордовых елок"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Домбай</h2>
-              <button
-                type="button"
-                class="card__button-like"
-              ></button>
-            </div>
-          </li>
-
-          <li class="card">
-            <img
-              src="./images/Karachevsk.jpg"
-              class="card__image"
-              alt="изоображение памятника в виде заброшенной церкви"
-            />
-            <div class="card__description">
-              <h2 class="card__title">Карачаево-Черкессия</h2>
-              <button
-                type="button"
-                class="card__button-like"
-              ></button>
-            </div>
-          </li>
         </ul>
       </section>
     </main>
@@ -149,6 +60,16 @@
           class="popup__button-close link"></button>
       </div>
     </div>
+
+    <template id="photo__card" >
+      <li class="card">
+        <img src="#"  class="card__image" alt="Вид сверху на кород"/>
+        <div class="card__description">
+          <h2 class="card__title"></h2>
+          <button type="button" class="card__button-like"></button>
+        </div>
+      </li>
+    </template>
     <script src="./scripts/index.js"></script>
   </body>
 </html>
