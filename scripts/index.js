@@ -46,9 +46,7 @@ initialCards.forEach( crd => {
   const card = photoCard.querySelector('.card').cloneNode(true);
   card.querySelector('.card__image').src = crd.link;
   card.querySelector('.card__title').textContent = crd.name;
-  photoCards.append(card);
-  console.log(card);
-})
+  photoCards.append(card);})
 // Открытие формы
 function openPopup() {
   jobInput.value = editProfession.textContent;
@@ -61,7 +59,8 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   editName.textContent = nameInput.value;
   editProfession.textContent = jobInput.value;
-  closePopup();
+  // closePopup();
+  closeForm(popup);
 }
 
 function closePopup() {
@@ -76,3 +75,23 @@ btnClose.addEventListener('click', closePopup);
 
 buttonEditProfile.addEventListener('click', openPopup);
 
+function openForm(form) {
+  form.classList.add('popup_opened');
+  const name = form.querySelector('.edit-form__input_type_name');
+  const link = form.querySelector('.edit-form__input_type_profession');
+  const btnSave = form.querySelector('.edit-form__button-save');
+  const btnClose = form.querySelector('.popup__button-close');
+
+  btnClose.addEventListener('click', () => form.classList.remove('popup_opened'));
+
+
+}
+
+
+function closeForm(form) {
+  form.classList.remove('popup_opened');
+}
+const btnAddCard = document.querySelector('.profile__add-button');
+const addForm = document.querySelector('#add-Form');
+
+btnAddCard.addEventListener('click', () => openForm(addForm))

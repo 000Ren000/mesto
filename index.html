@@ -44,7 +44,7 @@
       <p class="footer__text">&copy; 2020 Mesto Russia</p>
     </footer>
 
-    <div class="popup">
+    <div class="popup" id="edit-form">
       <div class="popup__conteiner">
         <form name="editForm" class="edit-form">
           <h2 class="edit-form__title">Редактировать профиль</h2>
@@ -60,6 +60,25 @@
           class="popup__button-close link"></button>
       </div>
     </div>
+
+
+    <div class="popup" id="add-Form">
+      <div class="popup__conteiner">
+        <form name="editForm" class="edit-form">
+          <h2 class="edit-form__title">Новое место</h2>
+          <input name="editFormName" placeholder="Название" type="text" class="edit-form__input edit-form__input_type_name" />
+          <input name="editFormProfession" placeholder="Ссылка на картинку" type="text" class="edit-form__input edit-form__input_type_profession" />
+          <button
+            type="submit"
+            class="edit-form__button-save"
+          >Создать</button
+          >
+        </form>
+        <button type="button" aria-label="Закрыть"
+                class="popup__button-close link"></button>
+      </div>
+    </div>
+
 
     <template id="photo__card" >
       <li class="card">
