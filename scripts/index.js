@@ -49,6 +49,9 @@ initialCards.forEach(crd => {
 btnEditProfile.addEventListener('click', () => openForm1(editForm));
 btnAddCard.addEventListener('click', () => openForm2(addForm))
 
+const allCards = photoCards.querySelectorAll('.card');
+allCards.forEach(likeAndRemoveCard);
+
 //изменяет Имя и Профессию
 function openForm1(popup) {
   const name = popup.querySelector('.edit-form__input_type_name');
@@ -89,6 +92,7 @@ function openForm2(popup) {
     card.querySelector('.card__image').src = link.value;
     card.querySelector('.card__image').alt = name.value;
     card.querySelector('.card__title').textContent = name.value;
+    likeAndRemoveCard(card);
     photoCards.prepend(card);
     closeForm(popup);
     form.closest('.popup__conteiner').remove();
@@ -106,12 +110,14 @@ function closeForm(form) {
 }
 
 //Ставит лайк и удаление карточки
-const allCards = document.querySelectorAll('.card');
-allCards.forEach(item => {
-  const btnLike = item.querySelector('.card__button-like');
-  const btnRemoveCard = item.querySelector('.card__trash');
+function likeAndRemoveCard(card) {
+  const btnLike = card.querySelector('.card__button-like');
+  const btnRemoveCard = card.querySelector('.card__trash');
   btnLike.addEventListener('click', () =>
     btnLike.classList.toggle('card__button-like_active'));
-  btnRemoveCard.addEventListener('click', () => item.remove());
-})
+  btnRemoveCard.addEventListener('click', () => card.remove());
+}
+
+
+
 
