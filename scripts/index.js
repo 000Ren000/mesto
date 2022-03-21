@@ -15,7 +15,7 @@ const initialCards = [
   },
   {
     name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
+    link: 'http://pochel.ru/media/CACHE/images/photologue/photos/3ec/3eca07fa-b697-49ae-ae98-0a6defeaf0c3/2952149fc4f850a7475b05980dbfe091.jpg',
   },
   {
     name: 'Иваново',
