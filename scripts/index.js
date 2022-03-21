@@ -76,7 +76,7 @@ function openForm2(popup) {
   const container = sample.querySelector('.popup__conteiner').cloneNode(true);
   addForm.append(container);
   const name = container.querySelector('.edit-form__input_type_name');
-  const link = container.querySelector('.edit-form__input_type_profession');
+  const link = container.querySelector('.edit-form__input_type_link');
   const btnClose = container.querySelector('.popup__button-close');
   const form = container.querySelector('.edit-form');
   form.addEventListener('submit',function(evt) {
