@@ -15,7 +15,7 @@ const initialCards = [
   },
   {
     name: 'Челябинская область',
-    link: 'http://pochel.ru/media/CACHE/images/photologue/photos/3ec/3eca07fa-b697-49ae-ae98-0a6defeaf0c3/2952149fc4f850a7475b05980dbfe091.jpg',
+    link: 'https://www.passionforum.ru/upload/088/u8831/012/0ced571c.jpg'
   },
   {
     name: 'Иваново',
@@ -94,7 +94,7 @@ function openForm2(popup) {
     form.closest('.popup__conteiner').remove();
   });
 
-  btnClose.addEventListener('click', function (){
+  btnClose.addEventListener('click', function () {
     closeForm(popup);
     form.closest('.popup__conteiner').remove();
   });
@@ -105,9 +105,13 @@ function closeForm(form) {
   form.classList.remove('popup_opened');
 }
 
-//Ставит лайк
-document.querySelectorAll('.card').forEach(item => {
+//Ставит лайк и удаление карточки
+const allCards = document.querySelectorAll('.card');
+allCards.forEach(item => {
   const btnLike = item.querySelector('.card__button-like');
+  const btnRemoveCard = item.querySelector('.card__trash');
   btnLike.addEventListener('click', () =>
     btnLike.classList.toggle('card__button-like_active'));
+  btnRemoveCard.addEventListener('click', () => item.remove());
 })
+
