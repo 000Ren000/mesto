@@ -41,6 +41,7 @@ initialCards.forEach(crd => {
   const photoCard = document.querySelector('#photo__card').content;
   const card = photoCard.querySelector('.card').cloneNode(true);
   card.querySelector('.card__image').src = crd.link;
+  card.querySelector('.card__image').alt = crd.name;
   card.querySelector('.card__title').textContent = crd.name;
   photoCards.append(card);
 })
@@ -84,6 +85,7 @@ function openForm2(popup) {
     const photoCard = document.querySelector('#photo__card').content;
     const card = photoCard.querySelector('.card').cloneNode(true);
     card.querySelector('.card__image').src = link.value;
+    card.querySelector('.card__image').alt = name.value;
     card.querySelector('.card__title').textContent = name.value;
     photoCards.prepend(card);
     closeForm(popup);
