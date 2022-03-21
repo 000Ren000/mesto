@@ -49,6 +49,7 @@ initialCards.forEach(crd => {
 btnEditProfile.addEventListener('click', () => openForm1(editForm));
 btnAddCard.addEventListener('click', () => openForm2(addForm))
 
+//изменяет Имя и Профессию
 function openForm1(popup) {
   const name = popup.querySelector('.edit-form__input_type_name');
   const prof = popup.querySelector('.edit-form__input_type_profession');
@@ -70,6 +71,7 @@ function openForm1(popup) {
 
 }
 
+//добавляет карточку
 function openForm2(popup) {
   popup.classList.add('popup_opened');
 
@@ -98,7 +100,14 @@ function openForm2(popup) {
   });
 }
 
+//Закрывает форму
 function closeForm(form) {
   form.classList.remove('popup_opened');
 }
 
+//Ставит лайк
+document.querySelectorAll('.card').forEach(item => {
+  const btnLike = item.querySelector('.card__button-like');
+  btnLike.addEventListener('click', () =>
+    btnLike.classList.toggle('card__button-like_active'));
+})
