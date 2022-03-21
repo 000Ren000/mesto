@@ -79,7 +79,7 @@ function openForm2(popup) {
   const link = container.querySelector('.edit-form__input_type_link');
   const btnClose = container.querySelector('.popup__button-close');
   const form = container.querySelector('.edit-form');
-  form.addEventListener('submit',function(evt) {
+  form.addEventListener('submit', function (evt) {
     evt.preventDefault();
     const photoCard = document.querySelector('#photo__card').content;
     const card = photoCard.querySelector('.card').cloneNode(true);
@@ -90,7 +90,10 @@ function openForm2(popup) {
     form.closest('.popup__conteiner').remove();
   });
 
-  btnClose.addEventListener('click', () => closeForm(popup));
+  btnClose.addEventListener('click', function (){
+    closeForm(popup);
+    form.closest('.popup__conteiner').remove();
+  });
 }
 
 function closeForm(form) {
