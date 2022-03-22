@@ -109,13 +109,41 @@ function closeForm(form) {
   form.classList.remove('popup_opened');
 }
 
-//Ставит лайк и удаление карточки
+const imagePopup = document.querySelector('.image-popup');
+
+
+// Действия с карточкой
 function likeAndRemoveCard(card) {
   const btnLike = card.querySelector('.card__button-like');
   const btnRemoveCard = card.querySelector('.card__trash');
+  const btnImage = card.querySelector('.card__image');
+
+  //Ставит лайк
   btnLike.addEventListener('click', () =>
     btnLike.classList.toggle('card__button-like_active'));
+
+  //Удаление карточки
   btnRemoveCard.addEventListener('click', () => card.remove());
+
+  //Открывает картинку
+  btnImage.addEventListener('click', function () {
+    imagePopup.classList.add('popup_opened');
+    const imageForm = document.querySelector('#image-popup').content;
+    const image = imageForm.querySelector('.image-popup__conteiner').cloneNode(true);
+    const btnCloseImage = image.querySelector('.image-popup__close');
+    image.querySelector('.image-popup__image').src = card.querySelector('.card__image').src;
+    image.querySelector('.image-popup__image').alt = card.querySelector('.card__image').alt;
+    image.querySelector('.image-popup__description').textContent = card.querySelector('.card__title').textContent;
+    imagePopup.append(image);
+
+    //Закрывает картинку
+    btnCloseImage.addEventListener('click', function () {
+      imagePopup.classList.remove('popup_opened');
+      image.remove();
+    });
+
+});
+
 }
 
 

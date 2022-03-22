@@ -52,9 +52,13 @@
 @import url('../blocks/edit-form/__input/_type/edit-form__input_type_name.css');
 @import url('../blocks/edit-form/__input/_type/edit-form__input_type_profession.css');
 
+/*image-popup*/
+@import url('../blocks/image-popup/image-popup.css');
+
 /* popap */
 @import url('../blocks/popup/popup.css');
 @import url('../blocks/popup/_opened/popup_opened.css');
 @import url('../blocks/popup/__conteiner/popup__conteiner.css');
 @import url('../blocks/popup/__button-close/popup__button-close.css');
+
 
