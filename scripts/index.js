@@ -85,9 +85,8 @@ function openForm2(popup) {
   const name = container.querySelector('.edit-form__input_type_name');
   const link = container.querySelector('.edit-form__input_type_link');
   const btnClose = container.querySelector('.popup__button-close');
-  const form = container.querySelector('.edit-form');
   addForm.append(container);
-
+  const form = container.querySelector('.edit-form');
   //Создает новую карточку по введенным данным
   form.addEventListener('submit', function (evt) {
     evt.preventDefault();
@@ -96,6 +95,7 @@ function openForm2(popup) {
     card.querySelector('.card__image').src = link.value;
     card.querySelector('.card__image').alt = name.value;
     card.querySelector('.card__title').textContent = name.value;
+    photoCards.prepend(card);
 
     likeAndRemoveCard(card);    //Ставит лайки и удоляет карточку
 
