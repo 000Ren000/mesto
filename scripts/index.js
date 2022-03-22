@@ -51,6 +51,8 @@ btnAddCard.addEventListener('click', () => openForm2(addForm))
 
 const allCards = photoCards.querySelectorAll('.card');
 allCards.forEach(likeAndRemoveCard);
+const imagePopup = document.querySelector('.image-popup');
+
 
 //изменяет Имя и Профессию
 function openForm1(popup) {
@@ -80,11 +82,13 @@ function openForm2(popup) {
 
   const sample = document.querySelector('#add-card').content;
   const container = sample.querySelector('.popup__conteiner').cloneNode(true);
-  addForm.append(container);
   const name = container.querySelector('.edit-form__input_type_name');
   const link = container.querySelector('.edit-form__input_type_link');
   const btnClose = container.querySelector('.popup__button-close');
   const form = container.querySelector('.edit-form');
+  addForm.append(container);
+
+  //Создает новую карточку по введенным данным
   form.addEventListener('submit', function (evt) {
     evt.preventDefault();
     const photoCard = document.querySelector('#photo__card').content;
@@ -92,12 +96,14 @@ function openForm2(popup) {
     card.querySelector('.card__image').src = link.value;
     card.querySelector('.card__image').alt = name.value;
     card.querySelector('.card__title').textContent = name.value;
-    likeAndRemoveCard(card);
-    photoCards.prepend(card);
+
+    likeAndRemoveCard(card);    //Ставит лайки и удоляет карточку
+
     closeForm(popup);
     form.closest('.popup__conteiner').remove();
   });
 
+  //Закрывает форму
   btnClose.addEventListener('click', function () {
     closeForm(popup);
     form.closest('.popup__conteiner').remove();
@@ -108,9 +114,6 @@ function openForm2(popup) {
 function closeForm(form) {
   form.classList.remove('popup_opened');
 }
-
-const imagePopup = document.querySelector('.image-popup');
-
 
 // Действия с карточкой
 function likeAndRemoveCard(card) {
