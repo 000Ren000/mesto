@@ -15,7 +15,7 @@ const initialCards = [
   },
   {
     name: 'Челябинская область',
-    link: 'https://www.passionforum.ru/upload/088/u8831/012/0ced571c.jpg'
+    link: 'https://www.nastol.com.ua/pic/201903/1366x768/nastol.com.ua-325658.jpg'
   },
   {
     name: 'Иваново',
