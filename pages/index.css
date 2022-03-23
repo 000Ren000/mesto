@@ -54,6 +54,10 @@
 
 /*image-popup*/
 @import url('../blocks/image-popup/image-popup.css');
+@import url('../blocks/image-popup/__close/image-popup__close.css');
+@import url('../blocks/image-popup/__conteiner/image-popup__conteiner.css');
+@import url('../blocks/image-popup/__description/image-popup__description.css');
+@import url('../blocks/image-popup/__image/image-popup__image.css');
 
 /* popap */
 @import url('../blocks/popup/popup.css');
