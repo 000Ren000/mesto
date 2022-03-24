@@ -7,6 +7,12 @@ const editProfession = document.querySelector('.profile__profession');
 const editForm = document.querySelector('#edit-form');
 const addForm = document.querySelector('#add-Form');
 const btnAddCard = document.querySelector('.profile__add-button');
+//popap
+const cardPopup = document.querySelector('#add-Form');
+const cardName = cardPopup.querySelector('.edit-form__input_type_name');
+const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
+const btnClose = cardPopup.querySelector('.popup__button-close');
+
 
 const initialCards = [
   {
@@ -40,14 +46,15 @@ const photoCards = document.querySelector('.photo__cards');
 initialCards.forEach(crd => {
   const photoCard = document.querySelector('#photo__card').content;
   const card = photoCard.querySelector('.card').cloneNode(true);
-  card.querySelector('.card__image').src = crd.link;
-  card.querySelector('.card__image').alt = crd.name;
+  const cardImage = card.querySelector('.card__image');
   card.querySelector('.card__title').textContent = crd.name;
+  cardImage.src = crd.link;
+  cardImage.alt = crd.name;
   photoCards.append(card);
 })
 
 btnEditProfile.addEventListener('click', () => openForm1(editForm));
-btnAddCard.addEventListener('click', () => openForm2(addForm))
+// btnAddCard.addEventListener('click', () => openForm2(addForm))
 
 const allCards = photoCards.querySelectorAll('.card');
 allCards.forEach(likeAndRemoveCard);
@@ -144,11 +151,34 @@ function likeAndRemoveCard(card) {
       imagePopup.classList.remove('popup_opened');
       image.remove();
     });
-
 });
-
 }
 
+//add func
 
+btnClose.addEventListener('click', function () {
+  closeForm(cardPopup);
+});
 
+function openPopup(form) {
+  form.classList.add('popup_opened');
+}
+
+btnAddCard.addEventListener('click', function () {
+  openPopup(cardPopup);
+});
+
+cardPopup.addEventListener('submit', function (event) {
+  event.preventDefault();
+  const photoCard = document.querySelector('#photo__card').content;
+  const card = photoCard.querySelector('.card').cloneNode(true);
+  const cardImage = card.querySelector('.card__image');
+  cardImage.src = cardLink.value;
+  cardImage.alt = cardLink.value;
+  card.querySelector('.card__title').textContent = cardName.value;
+  photoCards.prepend(card);
+  closeForm(addForm);
+  cardName.value = '';
+  cardLink.value = '';
+})
 
