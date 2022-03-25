@@ -17,7 +17,6 @@ const imagePopup = document.querySelector('.image-popup');
 const btnCloseImage = imagePopup.querySelector('.image-popup__close');
 
 const photoCards = document.querySelector('.photo__cards');
-
 const initialCards = [
   {
     name: 'Архыз',
@@ -139,7 +138,6 @@ cardPopup.addEventListener('submit', function (event) {
   cardName.value = '';
   cardLink.value = '';
   actionsCard(card);
-  // allCards.push(card);
 })
 
 btnCloseImage.addEventListener('click', function () {
