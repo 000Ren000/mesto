@@ -39,6 +39,7 @@
 @import url('../blocks/card/__image/card__image.css');
 @import url('../blocks/card/__title/card__title.css');
 @import url('../blocks/card/__trash/card__trash.css');
+@import url('../blocks/card/__border-image/card__border-image.css');
 
 /* footer */
 @import url('../blocks/footer/footer.css');
