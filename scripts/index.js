@@ -148,7 +148,7 @@ function openPopup(form) {
   form.classList.add('popup_opened');
 }
 
-// дуйствия с карточкой (cardPopup)
+// действия с карточкой (cardPopup)
 btnClose.addEventListener('click', function () {
   closePopup(cardPopup)
 });
@@ -169,6 +169,7 @@ cardPopup.addEventListener('submit', function (event) {
   closePopup(addForm);
   cardName.value = '';
   cardLink.value = '';
+  actionsCard(card);
   // allCards.push(card);
 })
 
