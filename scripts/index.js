@@ -7,7 +7,7 @@ const editProfession = document.querySelector('.profile__profession');
 const editForm = document.querySelector('#edit-form');
 const addForm = document.querySelector('#add-Form');
 const btnAddCard = document.querySelector('.profile__add-button');
-//popap
+
 const cardPopup = document.querySelector('#add-Form');
 const cardName = cardPopup.querySelector('.edit-form__input_type_name');
 const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
@@ -42,6 +42,8 @@ const initialCards = [
   },
 ];
 
+
+
 const photoCards = document.querySelector('.photo__cards');
 
 initialCards.forEach(crd => {
@@ -55,7 +57,7 @@ initialCards.forEach(crd => {
 })
 
 btnEditProfile.addEventListener('click', () => openForm1(editForm));
-// btnAddCard.addEventListener('click', () => openForm2(addForm))
+
 
 const allCards =  photoCards.querySelectorAll('.card');
 allCards.forEach(actionsCard);
@@ -81,45 +83,6 @@ function openForm1(popup) {
   });
 
 }
-
-//добавляет карточку
-// function openForm2(popup) {
-//   popup.classList.add('popup_opened');
-//
-//   const sample = document.querySelector('#add-card').content;
-//   const container = sample.querySelector('.popup__conteiner').cloneNode(true);
-//   const name = container.querySelector('.edit-form__input_type_name');
-//   const link = container.querySelector('.edit-form__input_type_link');
-//   const btnClose = container.querySelector('.popup__button-close');
-//   addForm.append(container);
-//   const form = container.querySelector('.edit-form');
-//   //Создает новую карточку по введенным данным
-//   form.addEventListener('submit', function (evt) {
-//     evt.preventDefault();
-//     const photoCard = document.querySelector('#photo__card').content;
-//     const card = photoCard.querySelector('.card').cloneNode(true);
-//     card.querySelector('.card__image').src = link.value;
-//     card.querySelector('.card__image').alt = name.value;
-//     card.querySelector('.card__title').textContent = name.value;
-//     photoCards.prepend(card);
-//
-//     likeAndRemoveCard(card);    //Ставит лайки и удоляет карточку
-//
-//     // closeForm(popup);
-//     form.closest('.popup__conteiner').remove();
-//   });
-//
-//   //Закрывает форму
-//   btnClose.addEventListener('click', function () {
-//     closeForm(popup);
-//     form.closest('.popup__conteiner').remove();
-//   });
-// }
-
-//Закрывает форму
-// function closeForm(form) {
-//   form.classList.remove('popup_opened');
-// }
 
 // Действия с карточкой
 function actionsCard(card) {
