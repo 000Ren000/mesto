@@ -55,26 +55,6 @@ initialCards.forEach(crd => {
   photoCards.append(card);
 })
 
-btnEditProfile.addEventListener('click', function (){
-  editProfile(profilePopup);
-});
-
-function editProfile(popup) {
-  profilePopupName.value = profileName.textContent;
-  profilePopupProfession.value = profileProfession.textContent;
-  popup.classList.add('popup_opened');
-
-  btnCloseProfile.addEventListener('click', function() {
-    closePopup(popup);
-  });
-
-  popup.addEventListener('submit', function formSubmitHandler(evt) {
-    evt.preventDefault();
-    profileName.textContent = profilePopupName.value;
-    profileProfession.textContent = profilePopupProfession.value;
-    closePopup(popup);
-  });
-}
 
 function actionsCard(card) {
   const btnLike = card.querySelector('.card__button-like');
@@ -116,6 +96,23 @@ function openPopup(form) {
   form.classList.add('popup_opened');
 }
 
+btnEditProfile.addEventListener('click', function (){
+  profilePopupName.value = profileName.textContent;
+  profilePopupProfession.value = profileProfession.textContent;
+  openPopup(profilePopup);
+});
+
+profilePopup.addEventListener('submit', function formSubmitHandler(evt) {
+  evt.preventDefault();
+  profileName.textContent = profilePopupName.value;
+  profileProfession.textContent = profilePopupProfession.value;
+  closePopup(profilePopup);
+});
+
+btnCloseProfile.addEventListener('click', function() {
+  closePopup(profilePopup);
+});
+
 
 btnCloseCard.addEventListener('click', function () {
   closePopup(cardPopup)
@@ -139,6 +136,7 @@ cardPopup.addEventListener('submit', function (event) {
   cardLink.value = '';
   actionsCard(card);
 })
+
 
 btnCloseImage.addEventListener('click', function () {
   closePopup(imagePopup);
