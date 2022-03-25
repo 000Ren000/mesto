@@ -60,9 +60,6 @@ btnEditProfile.addEventListener('click', function (){
   editProfile(profilePopup);
 });
 
-
-
-
 function editProfile(popup) {
   profilePopupName.value = profileName.textContent;
   profilePopupProfession.value = profileProfession.textContent;
