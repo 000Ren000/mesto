@@ -6,18 +6,15 @@ const btnAddCard = document.querySelector('.profile__add-button');
 const profilePopup = document.querySelector('#edit-form');
 const profilePopupName = profilePopup.querySelector('.edit-form__input_type_name');
 const profilePopupProfession = profilePopup.querySelector('.edit-form__input_type_profession');
-const btnCloseProfile = profilePopup.querySelector('.popup__button-close');
+const btnClosePopup = document.querySelectorAll('.popup__button-close');
 
 const cardPopup = document.querySelector('#add-Form');
 const cardName = cardPopup.querySelector('.edit-form__input_type_name');
 const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
-const btnCloseCard = cardPopup.querySelector('.popup__button-close');
 const photoCard = document.querySelector('#photo__card').content;
 
 
-const imagePopup = document.querySelector('.image-popup');
-const btnCloseImage = imagePopup.querySelector('.image-popup__close');
-
+const imagePopup = document.querySelector('#image-popup');
 const photoCards = document.querySelector('.photo__cards');
 
 const initialCards = [
@@ -46,6 +43,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
   },
 ];
+
 initialCards.forEach(crd => renderCard(crd.name, crd.link, false));
 
 function actionsCard(card) {
@@ -65,18 +63,17 @@ function actionsCard(card) {
 
   //Открывает картинку
   btnImage.addEventListener('click', function () {
-    openImage(card)
+    openImage(card);
   });
  }
 
 function openImage (card) {
-  const container = imagePopup.querySelector('.image-popup__conteiner');
-  const image = container.querySelector('.image-popup__image');
+  const container = imagePopup.querySelector('.popup__image-conteiner');
+  const image = container.querySelector('.popup__image');
 
   image.src = card.querySelector('.card__image').src;
   image.alt = card.querySelector('.card__image').alt;
-  container.querySelector('.image-popup__description').textContent = card.querySelector('.card__title').textContent;
-
+  container.querySelector('.popup__image-description').textContent = card.querySelector('.card__title').textContent;
   openPopup(imagePopup)
 }
 
@@ -115,13 +112,11 @@ profilePopup.addEventListener('submit', function formSubmitHandler(evt) {
   closePopup(profilePopup);
 });
 
-btnCloseProfile.addEventListener('click', function() {
-  closePopup(profilePopup);
-});
-
-
-btnCloseCard.addEventListener('click', function () {
-  closePopup(cardPopup)
+btnClosePopup.forEach(function (btnClose) {
+  btnClose.addEventListener('click', function() {
+    const form = btnClose.closest('.popup');
+    closePopup(form);
+  });
 });
 
 btnAddCard.addEventListener('click', function () {
@@ -136,8 +131,4 @@ cardPopup.addEventListener('submit', function (event) {
   cardLink.value = '';
 })
 
-
-btnCloseImage.addEventListener('click', function () {
-  closePopup(imagePopup);
-});
 
