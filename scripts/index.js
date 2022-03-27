@@ -46,7 +46,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
   },
 ];
-initialCards.forEach(crd => photoCards.append(createCard(crd.name, crd.link)));
+initialCards.forEach(crd => renderCard(crd.name, crd.link, false));
 
 function actionsCard(card) {
   const btnLike = card.querySelector('.card__button-like');
@@ -98,6 +98,10 @@ function createCard(name, link) {
   return card;
 }
 
+function renderCard(name, link, revers = true) {
+  if (revers) photoCards.prepend(createCard(name, link));
+  else  photoCards.append(createCard(name, link));
+}
 btnEditProfile.addEventListener('click', function (){
   profilePopupName.value = profileName.textContent;
   profilePopupProfession.value = profileProfession.textContent;
@@ -126,7 +130,7 @@ btnAddCard.addEventListener('click', function () {
 
 cardPopup.addEventListener('submit', function (event) {
   event.preventDefault();
-  photoCards.prepend(createCard(cardName.value, cardLink.value));
+  renderCard(cardName.value, cardLink.value);
   closePopup(cardPopup);
   cardName.value = '';
   cardLink.value = '';
