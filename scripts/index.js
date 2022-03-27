@@ -12,11 +12,14 @@ const cardPopup = document.querySelector('#add-Form');
 const cardName = cardPopup.querySelector('.edit-form__input_type_name');
 const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
 const btnCloseCard = cardPopup.querySelector('.popup__button-close');
+const photoCard = document.querySelector('#photo__card').content;
+
 
 const imagePopup = document.querySelector('.image-popup');
 const btnCloseImage = imagePopup.querySelector('.image-popup__close');
 
 const photoCards = document.querySelector('.photo__cards');
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -43,18 +46,7 @@ const initialCards = [
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
   },
 ];
-
-
-initialCards.forEach(crd => {
-  const photoCard = document.querySelector('#photo__card').content;
-  const card = photoCard.querySelector('.card').cloneNode(true);
-  const cardImage = card.querySelector('.card__image');
-  card.querySelector('.card__title').textContent = crd.name;
-  cardImage.src = crd.link;
-  cardImage.alt = crd.name;
-  photoCards.append(card);
-})
-
+initialCards.forEach(crd => renderCard(crd.name, crd.link, false));
 
 function actionsCard(card) {
   const btnLike = card.querySelector('.card__button-like');
@@ -96,6 +88,20 @@ function openPopup(form) {
   form.classList.add('popup_opened');
 }
 
+function createCard(name, link) {
+  const card = photoCard.querySelector('.card').cloneNode(true);
+  const cardImage = card.querySelector('.card__image');
+  cardImage.src = link;
+  cardImage.alt = name;
+  card.querySelector('.card__title').textContent = name;
+  actionsCard(card);
+  return card;
+}
+
+function renderCard(name, link, revers = true) {
+  if (revers) photoCards.prepend(createCard(name, link));
+  else  photoCards.append(createCard(name, link));
+}
 btnEditProfile.addEventListener('click', function (){
   profilePopupName.value = profileName.textContent;
   profilePopupProfession.value = profileProfession.textContent;
@@ -124,17 +130,10 @@ btnAddCard.addEventListener('click', function () {
 
 cardPopup.addEventListener('submit', function (event) {
   event.preventDefault();
-  const photoCard = document.querySelector('#photo__card').content;
-  const card = photoCard.querySelector('.card').cloneNode(true);
-  const cardImage = card.querySelector('.card__image');
-  cardImage.src = cardLink.value;
-  cardImage.alt = cardLink.value;
-  card.querySelector('.card__title').textContent = cardName.value;
-  photoCards.prepend(card);
+  renderCard(cardName.value, cardLink.value);
   closePopup(cardPopup);
   cardName.value = '';
   cardLink.value = '';
-  actionsCard(card);
 })
 
 
@@ -142,4 +141,3 @@ btnCloseImage.addEventListener('click', function () {
   closePopup(imagePopup);
 });
 
-photoCards.querySelectorAll('.card').forEach(actionsCard);
