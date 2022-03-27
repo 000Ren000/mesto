@@ -141,4 +141,3 @@ btnCloseImage.addEventListener('click', function () {
   closePopup(imagePopup);
 });
 
-photoCards.querySelectorAll('.card').forEach(actionsCard);
