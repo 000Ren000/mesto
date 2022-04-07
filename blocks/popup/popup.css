@@ -30,7 +30,7 @@
   margin-bottom: 13px;
   opacity: 1;
 }
-.popup__input-error {
+.popup__input_type_error {
   border-bottom: 1px solid #FF0000;
 }
 

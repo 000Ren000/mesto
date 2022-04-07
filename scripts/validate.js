@@ -1,5 +1,13 @@
-function enableValidation () {
-  const formList = Array.from(document.querySelectorAll('.edit-form'));
+const parameters = {
+  formSelector: '.edit-form',
+  inputSelector: '.edit-form__input',
+  submitButtonSelector: '.edit-form__button-save',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
+function enableValidation (parameters) {
+  const formList = Array.from(document.querySelectorAll(parameters.formSelector));
     formList.forEach(form => eventInputsForm(form));
 }
 
@@ -8,11 +16,11 @@ function handleFormInput (input, form) {
   const span = form.querySelector(`#${input.id}-error`);
   const validationResult = isValid(input);
   if (!validationResult.status) {
-    input.classList.add('popup__input-error');
+    input.classList.add(parameters.inputErrorClass);
     span.textContent = validationResult.message;
   }
   else {
-    input.classList.remove('popup__input-error');
+    input.classList.remove(parameters.inputErrorClass);
     span.textContent = '';
   }
 }
@@ -25,10 +33,9 @@ function isValid(input) {
   return validationResult;
 }
 
-
 //Действия со всеми инпутами на форме
 function eventInputsForm (form) {
-  const inputList = Array.from(form.querySelectorAll('.edit-form__input'));
+  const inputList = Array.from(form.querySelectorAll(parameters.inputSelector));
   deactivateButton(form, inputList);
   //Добавление слушателей на инпут
   inputList.forEach(input => input.addEventListener('input', () => {
@@ -44,65 +51,14 @@ function hasInvalidInput(inputList) {
 
 //Деактивация енопки
 function deactivateButton(form, inputList) {
-  const button = form.querySelector('.edit-form__button-save');
+  const button = form.querySelector(parameters.submitButtonSelector);
   if (hasInvalidInput(inputList)) {
     button.setAttribute('disabled', 'disabled');
-    button.classList.add('popup__button_disabled');
+    button.classList.add(parameters.inactiveButtonClass);
   }
   else {
     button.removeAttribute('disabled');
-    button.classList.remove('popup__button_disabled');
+    button.classList.remove(parameters.inactiveButtonClass);
   }
 }
-
-
-
-
-
-
-// //проверить валидна ли форма
-//
-// function  handleFormInput(event) {
-//   const form = event.currentTarget;
-//   const input = event.target;
-//   // setCustomError(input);
-//   setFieldError(input);
-//   setSubmitButtonState(form);
-// }
-
-// function setCustomError(input) {
-//   const validity = input.validity;
-//   input.setCustomValidity('');
-//   if (validity.tooLong) {
-//     const currentLength = input.length;
-//     const max = input.getAttribute('maxlength');
-//     input.setCustomValidity(`Введено ${currentLength} символа из ${max}`);
-//   }
-//   if (validity.tooShort) {
-//     input.setCustomValidity(`Поле не должно быть пустым`);
-//   }
-//   if (validity.typeMismatch) {
-//     input.setCustomValidity('Это не ссылка');
-//   }
-// }
-//
-function setFieldError (input) {
-   const span = document.querySelector(`#${input.id}-error`);
-   span.textContent = input.validationMessage;
-   input.classList.add('popup__input-error');
-}
-//
-// function setSubmitButtonState(form) {
-//   const button = form.querySelector('.edit-form__button-save');
-//   const isValidity = form.checkValidity();
-//
-//   if (!isValidity) {
-//       button.removeAttribute('disabled');
-//       button.classList.add('popup__button_disabled');
-//         } else {
-//       button.setAttribute('disabled', 'disabled');
-//     button.classList.remove('popup__button_disabled');
-//   }
-// }
-
-enableValidation();
+enableValidation(parameters);
