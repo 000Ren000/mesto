@@ -29,14 +29,33 @@ function isValid(input) {
 //Действия со всеми инпутами на форме
 function eventInputsForm (form) {
   const inputList = Array.from(form.querySelectorAll('.edit-form__input'));
+  deactivateButton(form, inputList);
   //Добавление слушателей на инпут
-  inputList.forEach(input => input.addEventListener('input', () =>
-    handleFormInput(input, form)));
+  inputList.forEach(input => input.addEventListener('input', () => {
+    handleFormInput(input, form);
+    deactivateButton(form, inputList);
+  }));
+
+}
+
+function hasInvalidInput(inputList) {
+  return inputList.some(input => {return !input.validity.valid;});
+}
+
+//Деактивация енопки
+function deactivateButton(form, inputList) {
+  const button = form.querySelector('.edit-form__button-save');
+  if (hasInvalidInput(inputList)) {
+    button.setAttribute('disabled', 'disabled');
+    button.classList.add('popup__button_disabled');
+  }
+  else {
+    button.removeAttribute('disabled');
+    button.classList.remove('popup__button_disabled');
+  }
 }
 
 
-
-//найти все формы
 
 
 
