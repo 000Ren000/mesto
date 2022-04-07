@@ -46,10 +46,26 @@
 
     <div class="popup popup_opacity_mid" id="edit-form">
       <div class="popup__conteiner">
-        <form name="editForm" class="edit-form">
+        <form name="editForm" class="edit-form" novalidate>
           <h2 class="edit-form__title">Редактировать профиль</h2>
-          <input name="editFormName" type="text" class="edit-form__input edit-form__input_type_name" />
-          <input name="editFormProfession" type="text" class="edit-form__input edit-form__input_type_profession" />
+          <input name="editFormName"
+                 type="text"
+                 class="edit-form__input edit-form__input_type_name"
+                 id="input-profile-name"
+                minlength="2"
+                 maxlength="40"
+                 required
+          />
+          <span class="popup__error" id="input-profile-name-error" ></span>
+          <input name="editFormProfession"
+                 type="text"
+                 class="edit-form__input edit-form__input_type_profession"
+                 id="input-profession"
+                  minlength="2"
+                 maxlength="200"
+                 required
+          />
+          <span class="popup__error" id="input-profession-error" ></span>
           <button
             type="submit"
             class="edit-form__button-save"
@@ -61,12 +77,28 @@
       </div>
     </div>
 
-    <div class="popup popup_opacity_mid" id="add-Form">
+    <div class="popup popup_opacity_mid" id="add-Form" >
       <div class="popup__conteiner">
-        <form name="editForm" class="edit-form">
+        <form name="editForm" class="edit-form"  novalidate>
           <h2 class="edit-form__title">Новое место</h2>
-          <input name="editFormName" placeholder="Название" type="text" class="edit-form__input edit-form__input_type_name" />
-          <input name="editFormProfession" placeholder="Ссылка на картинку" type="text" class="edit-form__input edit-form__input_type_link" />
+          <input name="editFormName"
+                 id="input-name"
+                 placeholder="Название"
+                 type="text"
+                 class="edit-form__input edit-form__input_type_name "
+                  minlength="2"
+                  maxlength="30"
+                 required
+          />
+          <span class="popup__error" id="input-name-error" ></span>
+          <input name="editFormProfession"
+                 id="input-link"
+                 placeholder="Ссылка на картинку"
+                 type="url"
+                 class="edit-form__input edit-form__input_type_link"
+                 required
+          />
+          <span class="popup__error" id="input-link-error"></span>
           <button
             type="submit"
             class="edit-form__button-save"
@@ -100,5 +132,6 @@
     </template>
 
     <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>

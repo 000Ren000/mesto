@@ -1,6 +1,5 @@
 .edit-form__input {
   padding: 0;
-  margin-bottom: 18px;
   width: 100%;
   min-height: 38px;
   border: none;
@@ -13,9 +12,7 @@
   line-height: 17px;
   color: #000000;
 }
-.edit-form__input:last-of-type {
-  margin-bottom: 48px;
-}
+
 @media screen and (max-width: 320px) {
   .edit-form__input:last-of-type {
     margin-bottom: 44px;

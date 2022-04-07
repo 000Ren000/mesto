@@ -14,3 +14,30 @@
   opacity: 0;
   transition: 220ms ease-in-out;
 }
+
+.popup__error {
+  display: block;
+  width: 100%;
+  height: calc(35px - 5px - 13px);
+  font-family: Inter, "Helvetica Neue", Arial, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+
+  color: #FF0000;
+  margin-top: 5px;
+  margin-bottom: 13px;
+  opacity: 1;
+}
+.popup__input-error {
+  border-bottom: 1px solid #FF0000;
+}
+
+.popup__button_disabled {
+  opacity: 0.2;
+}
+
+.popup__button_disabled:hover {
+  opacity: 0.2;
+}
