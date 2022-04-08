@@ -134,4 +134,22 @@ cardPopup.addEventListener('submit', function (event) {
   cardLink.value = '';
 })
 
+cardPopup.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    closePopup(event.currentTarget);
+  }
+});
+profilePopup.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    closePopup(event.currentTarget);
+  }
+});
+imagePopup.addEventListener("click", function (event) {
+  if (event.target === event.currentTarget) {
+    closePopup(event.currentTarget);
+  }
+});
 
+cardPopup.addEventListener("keydown", function (event) {
+  if (event.key === 'Escape') closePopup(event.currentTarget);
+});
