@@ -17,6 +17,9 @@ const photoCard = document.querySelector('#photo__card').content;
 const imagePopup = document.querySelector('#image-popup');
 const photoCards = document.querySelector('.photo__cards');
 
+const container = imagePopup.querySelector('.popup__image-conteiner');
+const image = container.querySelector('.popup__image');
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -44,10 +47,9 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach(crd => renderCard(crd.name, crd.link, false));
+initialCards.forEach(card => renderCard(card.name, card.link, false));
 
-profilePopupName.value = profileName.textContent;
-profilePopupProfession.value = profileProfession.textContent;
+
 
 function actionsCard(card) {
   const btnLike = card.querySelector('.card__button-like');
@@ -71,21 +73,27 @@ function actionsCard(card) {
  }
 
 function openImage (card) {
-  const container = imagePopup.querySelector('.popup__image-conteiner');
-  const image = container.querySelector('.popup__image');
-
   image.src = card.querySelector('.card__image').src;
   image.alt = card.querySelector('.card__image').alt;
   container.querySelector('.popup__image-description').textContent = card.querySelector('.card__title').textContent;
   openPopup(imagePopup)
 }
 
+function closeByEsc(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+  }
+}
+
 function closePopup(form) {
   form.classList.remove('popup_opened');
+  form.removeEventListener('keydown', closeByEsc);
 }
 
 function openPopup(form) {
   form.classList.add('popup_opened');
+  form.addEventListener('keydown', closeByEsc);
 }
 
 function createCard(name, link) {
@@ -138,18 +146,4 @@ cardPopup.addEventListener("click", function (event) {
   if (event.target === event.currentTarget) {
     closePopup(event.currentTarget);
   }
-});
-profilePopup.addEventListener("click", function (event) {
-  if (event.target === event.currentTarget) {
-    closePopup(event.currentTarget);
-  }
-});
-imagePopup.addEventListener("click", function (event) {
-  if (event.target === event.currentTarget) {
-    closePopup(event.currentTarget);
-  }
-});
-
-cardPopup.addEventListener("keydown", function (event) {
-  if (event.key === 'Escape') closePopup(event.currentTarget);
 });
