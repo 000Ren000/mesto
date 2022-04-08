@@ -27,7 +27,6 @@
 
   color: #FF0000;
   margin-top: 5px;
-  margin-bottom: 13px;
   opacity: 1;
 }
 .popup__input_type_error {
@@ -35,9 +34,14 @@
 }
 
 .popup__button_disabled {
-  opacity: 0.2;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #000000;
+  opacity: .2;
 }
 
 .popup__button_disabled:hover {
-  opacity: 0.2;
+  opacity: .2;
 }

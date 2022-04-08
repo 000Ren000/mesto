@@ -46,6 +46,9 @@ const initialCards = [
 
 initialCards.forEach(crd => renderCard(crd.name, crd.link, false));
 
+profilePopupName.value = profileName.textContent;
+profilePopupProfession.value = profileProfession.textContent;
+
 function actionsCard(card) {
   const btnLike = card.querySelector('.card__button-like');
   const btnRemoveCard = card.querySelector('.card__trash');
