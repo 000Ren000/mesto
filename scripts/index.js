@@ -157,7 +157,7 @@ cardPopup.addEventListener('submit', function (event) {
 allPopups.forEach(popup => {
  popup.addEventListener("click", function (event) {
     if (event.target === event.currentTarget) {
-      closePopup(event.currentTarget);
+      closePopup(popup);
     }
   });
 });
