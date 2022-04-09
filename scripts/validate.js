@@ -36,16 +36,10 @@ function enableValidation (parameters) {
 
   }
 
-  function hasInvalidInput(inputList) {
-    return inputList.some(input => {
-      return !input.validity.valid;
-    });
-  }
-
-//Деактивация енопки
+  //Деактивация енопки
   function deactivateButton(form, inputList) {
     const button = form.querySelector(parameters.submitButtonSelector);
-    if (hasInvalidInput(inputList)) {
+    if (!form.checkValidity()) {
       button.setAttribute('disabled', 'disabled');
       button.classList.add(parameters.inactiveButtonClass);
     } else {
