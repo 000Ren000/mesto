@@ -20,6 +20,8 @@ const photoCards = document.querySelector('.photo__cards');
 const container = imagePopup.querySelector('.popup__image-conteiner');
 const image = container.querySelector('.popup__image');
 
+const allPopups = document.querySelectorAll('.popup');
+
 const initialCards = [
   {
     name: 'Архыз',
@@ -149,11 +151,15 @@ cardPopup.addEventListener('submit', function (event) {
     inputErrorClass: 'popup__input_type_error',
     errorClass: 'popup__error_visible'
   });
-})
-
-cardPopup.addEventListener("click", function (event) {
-  if (event.target === event.currentTarget) {
-    closePopup(event.currentTarget);
-  }
 });
+
+
+allPopups.forEach(popup => {
+ popup.addEventListener("click", function (event) {
+    if (event.target === event.currentTarget) {
+      closePopup(event.currentTarget);
+    }
+  });
+});
+
 
