@@ -54,7 +54,7 @@ const initialCards = [
 
 // initialCards.forEach(card => renderCard(card.name, card.link, false));
 initialCards.forEach(item => {
- const card = new Card(item);
+ const card = new Card(item, '.photo__cards');
  card.renderCard();
 });
 

@@ -3,8 +3,7 @@ export class Card {
     this._name = cardDetails.name;
     this._link = cardDetails.link;
     this._sampleCard = document.querySelector('#photo__card');
-    this._popup = document.querySelector(selector);
-    this._photoCards = document.querySelector('.photo__cards');
+    this._photoCards = document.querySelector(selector);
   }
 
     _createCard() {
