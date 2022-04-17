@@ -2,8 +2,8 @@ export class Card {
   constructor(cardDetails, selector) {
     this._name = cardDetails.name;
     this._link = cardDetails.link;
-    this._sampleCard = document.querySelector('#photo__card');
-    this._photoCards = document.querySelector(selector);
+    this._sampleCard = document.querySelector(selector);
+    this._photoCards = document.querySelector('.photo__cards');
   }
 
     _setEvents(_card) {
