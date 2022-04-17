@@ -6,16 +6,6 @@ export class Card {
     this._photoCards = document.querySelector(selector);
   }
 
-
-    _openImage (_card) {
-    const _image = document.querySelector('.popup__image');
-    const _imagePopup = document.querySelector('#image-popup');
-      _image.src = _card.querySelector('.card__image').src;
-      _image.alt = _card.querySelector('.card__image').alt;
-      document.querySelector('.popup__image-description').textContent = _card.querySelector('.card__title').textContent;
-      _imagePopup.classList.add('popup_opened');
-    }
-
     _setEvents(_card) {
       const _btnLike = _card.querySelector('.card__button-like');
       const _btnRemoveCard = _card.querySelector('.card__trash');
