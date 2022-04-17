@@ -1,3 +1,5 @@
+import {Card} from './card.js';
+
 const btnEditProfile = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__name');
 const profileProfession = document.querySelector('.profile__profession');
@@ -49,8 +51,12 @@ const initialCards = [
   },
 ];
 
-initialCards.forEach(card => renderCard(card.name, card.link, false));
 
+// initialCards.forEach(card => renderCard(card.name, card.link, false));
+initialCards.forEach(item => {
+ const card = new Card(item);
+ card.renderCard();
+});
 
 
 
@@ -160,5 +166,9 @@ allPopups.forEach(popup => {
     }
   });
 });
+
+
+
+
 
 
