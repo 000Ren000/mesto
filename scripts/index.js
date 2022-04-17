@@ -54,7 +54,6 @@ initialCards.forEach(card => renderCard(card.name, card.link, false));
 
 
 
-
 function openImage (card) {
   image.src = card.querySelector('.card__image').src;
   image.alt = card.querySelector('.card__image').alt;
