@@ -64,7 +64,7 @@ function openImage (card) {
   image.src = card.querySelector('.card__image').src;
   image.alt = card.querySelector('.card__image').alt;
   container.querySelector('.popup__image-description').textContent = card.querySelector('.card__title').textContent;
-  openPopup(imagePopup)
+  openPopup(imagePopup);
 }
 
 function closeByEsc(evt) {
