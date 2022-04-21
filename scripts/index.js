@@ -53,6 +53,9 @@ const param = {
   errorClass: 'popup__error_visible'
 };
 
+profilePopupName.value = profileName.textContent;
+profilePopupProfession.value = profileProfession.textContent;
+
 initialCards.forEach(item => {
  const card = new Card(item, '#photo__card');
  card.renderCard();
@@ -112,14 +115,8 @@ cardPopup.addEventListener('submit', function (event) {
   closePopup(cardPopup);
   cardName.value = '';
   cardLink.value = '';
-  // enableValidation({
-  //   formSelector: '.edit-form',
-  //   inputSelector: '.edit-form__input',
-  //   submitButtonSelector: '.edit-form__button-save',
-  //   inactiveButtonClass: 'popup__button_disabled',
-  //   inputErrorClass: 'popup__input_type_error',
-  //   errorClass: 'popup__error_visible'
-  // });
+  const formValitator = new FormValidator(param, cardPopup);
+  formValitator.enableValidation();
 });
 
 allPopups.forEach(popup => {
