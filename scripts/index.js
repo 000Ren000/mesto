@@ -1,4 +1,5 @@
 import {Card} from './card.js';
+import {FormValidator} from './FormValidator.js';
 
 const btnEditProfile = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__name');
@@ -43,6 +44,14 @@ const initialCards = [
   },
 ];
 
+const param = {
+  formSelector: '.edit-form',
+  inputSelector: '.edit-form__input',
+  submitButtonSelector: '.edit-form__button-save',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
 
 initialCards.forEach(item => {
  const card = new Card(item, '#photo__card');
@@ -103,14 +112,14 @@ cardPopup.addEventListener('submit', function (event) {
   closePopup(cardPopup);
   cardName.value = '';
   cardLink.value = '';
-  enableValidation({
-    formSelector: '.edit-form',
-    inputSelector: '.edit-form__input',
-    submitButtonSelector: '.edit-form__button-save',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__error_visible'
-  });
+  // enableValidation({
+  //   formSelector: '.edit-form',
+  //   inputSelector: '.edit-form__input',
+  //   submitButtonSelector: '.edit-form__button-save',
+  //   inactiveButtonClass: 'popup__button_disabled',
+  //   inputErrorClass: 'popup__input_type_error',
+  //   errorClass: 'popup__error_visible'
+  // });
 });
 
 allPopups.forEach(popup => {
@@ -119,6 +128,8 @@ allPopups.forEach(popup => {
       closePopup(popup);
     }
   });
+ const formValitator = new FormValidator(param, popup);
+ formValitator.enableValidation();
 });
 
 

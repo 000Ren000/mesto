@@ -27,6 +27,7 @@ function enableValidation (parameters) {
 //Действия со всеми инпутами на форме
   function eventInputsForm(form) {
     const inputList = Array.from(form.querySelectorAll(parameters.inputSelector));
+    console.log(inputList);
     deactivateButton(form, inputList);
     //Добавление слушателей на инпут
     inputList.forEach(input => input.addEventListener('input', () => {
@@ -48,11 +49,13 @@ function enableValidation (parameters) {
     }
   }
 }
-enableValidation({
-  formSelector: '.edit-form',
-  inputSelector: '.edit-form__input',
-  submitButtonSelector: '.edit-form__button-save',
-  inactiveButtonClass: 'popup__button_disabled',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__error_visible'
-});
+
+//   const param = {
+//   formSelector: '.edit-form',
+//   inputSelector: '.edit-form__input',
+//   submitButtonSelector: '.edit-form__button-save',
+//   inactiveButtonClass: 'popup__button_disabled',
+//   inputErrorClass: 'popup__input_type_error',
+//   errorClass: 'popup__error_visible'
+// };
+// enableValidation(param);
