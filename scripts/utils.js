@@ -36,3 +36,5 @@ export const initialCards = [
 
 export const image = document.querySelector('.popup__image');
 export const imagePopup =document.querySelector('#image-popup');
+export const imageDescription =document.querySelector('.popup__image-description');
+

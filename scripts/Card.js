@@ -1,4 +1,4 @@
-import {image, imagePopup} from './utils.js';
+import {image, imageDescription, imagePopup} from './utils.js';
 export class Card {
   constructor(cardDetails, selector) {
     this._name = cardDetails.name;
@@ -29,7 +29,7 @@ export class Card {
       btnImage.addEventListener('click',  () => {
         image.src = this._link;
         image.alt = this._name;
-        document.querySelector('.popup__image-description').textContent = this._card.querySelector('.card__title').textContent;
+        imageDescription.textContent = this._card.querySelector('.card__title').textContent;
         imagePopup.classList.add('popup_opened');
       });
     }
