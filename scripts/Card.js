@@ -6,27 +6,27 @@ export class Card {
     this._photoCards = document.querySelector('.photo__cards');
   }
 
-    _setEvents(_card) {
-      const _btnLike = _card.querySelector('.card__button-like');
-      const _btnRemoveCard = _card.querySelector('.card__trash');
-      const _btnImage = _card.querySelector('.card__image');
+    _setEvents(card) {
+      const btnLike = card.querySelector('.card__button-like');
+      const btnRemoveCard = card.querySelector('.card__trash');
+      const btnImage = card.querySelector('.card__image');
 
       //Ставит лайк
-      _btnLike.addEventListener('click',  () =>
-        _btnLike.classList.toggle('card__button-like_active'));
+      btnLike.addEventListener('click',  () =>
+        btnLike.classList.toggle('card__button-like_active'));
 
       //Удаление карточки
-      _btnRemoveCard.addEventListener('click',  () =>
-        _card.remove());
+      btnRemoveCard.addEventListener('click',  () =>
+        card.remove());
 
      // Открывает картинку
-      _btnImage.addEventListener('click',  () => {
-        const _image = document.querySelector('.popup__image');
-        const _imagePopup = document.querySelector('#image-popup');
-        _image.src = _card.querySelector('.card__image').src;
-        _image.alt = _card.querySelector('.card__image').alt;
-        document.querySelector('.popup__image-description').textContent = _card.querySelector('.card__title').textContent;
-        _imagePopup.classList.add('popup_opened');
+      btnImage.addEventListener('click',  () => {
+        const image = document.querySelector('.popup__image');
+        const imagePopup = document.querySelector('#image-popup');
+        image.src = card.querySelector('.card__image').src;
+        image.alt = card.querySelector('.card__image').alt;
+        document.querySelector('.popup__image-description').textContent = card.querySelector('.card__title').textContent;
+        imagePopup.classList.add('popup_opened');
       });
     }
 
