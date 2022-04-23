@@ -20,9 +20,10 @@ export class Card {
         btnLike.classList.toggle('card__button-like_active'));
 
       //Удаление карточки
-      btnRemoveCard.addEventListener('click',  () =>
-        this._card.remove());
-
+      btnRemoveCard.addEventListener('click',  () => {
+        this._card.remove();
+        this._card = null;
+      })
      // Открывает картинку
       btnImage.addEventListener('click',  () => {
         const image = document.querySelector('.popup__image');
