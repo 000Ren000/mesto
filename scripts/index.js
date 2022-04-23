@@ -1,5 +1,7 @@
 import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
+import {initialCards} from './utils.js';
+import {param} from './utils.js';
 
 const btnEditProfile = document.querySelector('.profile__edit-button');
 const profileName = document.querySelector('.profile__name');
@@ -17,8 +19,6 @@ const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
 
 const allPopups = document.querySelectorAll('.popup');
 
-import {initialCards} from './utils.js';
-import {param} from './utils.js';
 
 
 profilePopupName.value = profileName.textContent;

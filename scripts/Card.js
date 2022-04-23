@@ -4,12 +4,16 @@ export class Card {
     this._link = cardDetails.link;
     this._sampleCard = document.querySelector(selector);
     this._photoCards = document.querySelector('.photo__cards');
+    this._card = this._sampleCard
+      .content
+      .querySelector('.card')
+      .cloneNode(true);
   }
 
-    _setEvents(card) {
-      const btnLike = card.querySelector('.card__button-like');
-      const btnRemoveCard = card.querySelector('.card__trash');
-      const btnImage = card.querySelector('.card__image');
+    _setEvents() {
+      const btnLike = this._card.querySelector('.card__button-like');
+      const btnRemoveCard = this._card.querySelector('.card__trash');
+      const btnImage = this._card.querySelector('.card__image');
 
       //Ставит лайк
       btnLike.addEventListener('click',  () =>
@@ -17,30 +21,27 @@ export class Card {
 
       //Удаление карточки
       btnRemoveCard.addEventListener('click',  () =>
-        card.remove());
+        this._card.remove());
 
      // Открывает картинку
       btnImage.addEventListener('click',  () => {
         const image = document.querySelector('.popup__image');
         const imagePopup = document.querySelector('#image-popup');
-        image.src = card.querySelector('.card__image').src;
-        image.alt = card.querySelector('.card__image').alt;
-        document.querySelector('.popup__image-description').textContent = card.querySelector('.card__title').textContent;
+        image.src = this._card.querySelector('.card__image').src;
+        image.alt = this._card.querySelector('.card__image').alt;
+        document.querySelector('.popup__image-description').textContent = this._card.querySelector('.card__title').textContent;
         imagePopup.classList.add('popup_opened');
       });
     }
 
     _createCard() {
-      const _card = this._sampleCard
-        .content
-        .querySelector('.card')
-        .cloneNode(true);
-      const _cardImage = _card.querySelector('.card__image');
+
+      const _cardImage = this._card.querySelector('.card__image');
       _cardImage.src = this._link;
       _cardImage.alt = this._name;
-      _card.querySelector('.card__title').textContent = this._name;
-      this._setEvents(_card);
-      return _card;
+      this._card.querySelector('.card__title').textContent = this._name;
+      this._setEvents(this._card);
+      return this._card;
     }
 
     renderCard(revers = false) {
