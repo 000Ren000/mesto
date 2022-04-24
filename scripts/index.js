@@ -27,9 +27,13 @@ allPopups.forEach(popup => {
       closePopup(popup);
     }
   });
-  const formValitator = new FormValidator(param, popup);
-  formValitator.enableValidation();
 });
+
+const cardPopupValitator = new FormValidator(param, cardPopup);
+cardPopupValitator.enableValidation();
+
+const profilePopupValidator = new FormValidator(param, profilePopup);
+profilePopupValidator.enableValidation();
 
 profilePopupName.value = profileName.textContent;
 profilePopupProfession.value = profileProfession.textContent;
@@ -62,11 +66,10 @@ function openPopup(form) {
   form.addEventListener('keydown', closeByEsc);
 }
 
-function resetPopup(form) {
-  const btnSubmit = form.querySelector('.edit-form__button-save');
-  cardName.value = '';
-  cardLink.value = '';
-  btnSubmit.classList.add('popup__button_disabled');
+function resetPopup() {
+  cardName.value = null;
+  cardLink.value = null;
+  cardPopupValitator.enableValidation();
 }
 
 btnEditProfile.addEventListener('click', function (){
