@@ -16,17 +16,28 @@ const btnClosePopup = document.querySelectorAll('.popup__button-close');
 const cardPopup = document.querySelector('#add-Form');
 const cardName = cardPopup.querySelector('.edit-form__input_type_name');
 const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
+const photoCards = document.querySelector('.photo__cards');
+
 
 const allPopups = document.querySelectorAll('.popup');
 
-
+allPopups.forEach(popup => {
+  popup.addEventListener("click", function (event) {
+    if (event.target === event.currentTarget) {
+      closePopup(popup);
+    }
+  });
+  const formValitator = new FormValidator(param, popup);
+  formValitator.enableValidation();
+});
 
 profilePopupName.value = profileName.textContent;
 profilePopupProfession.value = profileProfession.textContent;
 
 const createCard = (item, selector, revers = false) => {
   const card = new Card(item, selector);
-  card.renderCard(revers);
+    if (revers) photoCards.prepend(card.createCard());
+    else  photoCards.append(card.createCard());
 }
 
 initialCards.forEach(item => {
@@ -51,6 +62,12 @@ function openPopup(form) {
   form.addEventListener('keydown', closeByEsc);
 }
 
+function resetPopup(form) {
+  const btnSubmit = form.querySelector('.edit-form__button-save');
+  cardName.value = '';
+  cardLink.value = '';
+  btnSubmit.classList.add('popup__button_disabled');
+}
 
 btnEditProfile.addEventListener('click', function (){
   profilePopupName.value = profileName.textContent;
@@ -84,21 +101,10 @@ cardPopup.addEventListener('submit', function (event) {
   }
   createCard(cardValue, '#photo__card', true);
   closePopup(cardPopup);
-  cardName.value = '';
-  cardLink.value = '';
-  const formValitator = new FormValidator(param, cardPopup);
-  formValitator.enableValidation();
+  resetPopup(cardPopup);
 });
 
-allPopups.forEach(popup => {
- popup.addEventListener("click", function (event) {
-    if (event.target === event.currentTarget) {
-      closePopup(popup);
-    }
-  });
- const formValitator = new FormValidator(param, popup);
- formValitator.enableValidation();
-});
+
 
 
 

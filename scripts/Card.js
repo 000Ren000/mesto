@@ -3,9 +3,7 @@ export class Card {
   constructor(cardDetails, selector) {
     this._name = cardDetails.name;
     this._link = cardDetails.link;
-    this._sampleCard = document.querySelector(selector);
-    this._photoCards = document.querySelector('.photo__cards');
-    this._card = this._sampleCard
+    this._card = document.querySelector(selector)
       .content
       .querySelector('.card')
       .cloneNode(true);
@@ -34,7 +32,7 @@ export class Card {
       });
     }
 
-    _createCard() {
+    createCard() {
       const _cardImage = this._card.querySelector('.card__image');
       _cardImage.src = this._link;
       _cardImage.alt = this._name;
@@ -43,8 +41,5 @@ export class Card {
       return this._card;
     }
 
-    renderCard(revers = false) {
-      if (revers) this._photoCards.prepend(this._createCard());
-      else  this._photoCards.append(this._createCard());
-    }
+
 }
