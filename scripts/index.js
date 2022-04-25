@@ -69,7 +69,7 @@ function openPopup(form) {
 function resetPopup() {
   cardName.value = null;
   cardLink.value = null;
-  cardPopupValitator.enableValidation();
+  cardPopupValitator.disableButton();
 }
 
 btnEditProfile.addEventListener('click', function (){

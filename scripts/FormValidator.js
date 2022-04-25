@@ -31,7 +31,7 @@ export class FormValidator {
   }
 
   //Деактивация енопки
-  _deactivateButton(_inputList) {
+  _deactivateButton() {
     const button = this._form.querySelector(this._submitButtonSelector);
     if (!this._form.checkValidity()) {
       button.setAttribute('disabled', 'disabled');
@@ -47,14 +47,19 @@ export class FormValidator {
   _eventInputsForm() {
     if (this._form !== null) {
       const _inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
-      this._deactivateButton(_inputList);
+      this._deactivateButton();
       //Добавление слушателей на инпут
       _inputList.forEach(input => input.addEventListener('input', () => {
         this._handleFormInput(input);
-        this._deactivateButton(_inputList);
+        this._deactivateButton();
       }));
     }
   }
+
+  disableButton(){
+    this._deactivateButton();
+  }
+
   enableValidation() {
     this._eventInputsForm();
   }
