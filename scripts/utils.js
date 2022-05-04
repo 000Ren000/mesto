@@ -38,3 +38,20 @@ export const image = document.querySelector('.popup__image');
 export const imagePopup =document.querySelector('#image-popup');
 export const imageDescription =document.querySelector('.popup__image-description');
 
+export const btnEditProfile = document.querySelector('.profile__edit-button');
+export const profileName = document.querySelector('.profile__name');
+export const profileProfession = document.querySelector('.profile__profession');
+export const btnAddCard = document.querySelector('.profile__add-button');
+
+export const profilePopup = document.querySelector('#edit-form');
+export const profilePopupName = profilePopup.querySelector('.edit-form__input_type_name');
+export const profilePopupProfession = profilePopup.querySelector('.edit-form__input_type_profession');
+export const btnClosePopup = document.querySelectorAll('.popup__button-close');
+
+export const cardPopup = document.querySelector('#add-Form');
+export const cardName = cardPopup.querySelector('.edit-form__input_type_name');
+export const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
+export const photoCards = document.querySelector('.photo__cards');
+
+
+export const allPopups = document.querySelectorAll('.popup');

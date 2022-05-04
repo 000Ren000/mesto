@@ -2,24 +2,12 @@ import {Card} from './Card.js';
 import {FormValidator} from './FormValidator.js';
 import {initialCards} from './utils.js';
 import {param} from './utils.js';
+import {image, imagePopup, imageDescription} from './utils.js';
+import {btnEditProfile, btnAddCard, btnClosePopup} from './utils.js';
+import {profileName, profilePopupName, profilePopupProfession, profilePopup, profileProfession} from './utils.js';
+import {cardPopup, cardName, cardLink, photoCards} from './utils.js';
+import {allPopups} from './utils.js';
 
-const btnEditProfile = document.querySelector('.profile__edit-button');
-const profileName = document.querySelector('.profile__name');
-const profileProfession = document.querySelector('.profile__profession');
-const btnAddCard = document.querySelector('.profile__add-button');
-
-const profilePopup = document.querySelector('#edit-form');
-const profilePopupName = profilePopup.querySelector('.edit-form__input_type_name');
-const profilePopupProfession = profilePopup.querySelector('.edit-form__input_type_profession');
-const btnClosePopup = document.querySelectorAll('.popup__button-close');
-
-const cardPopup = document.querySelector('#add-Form');
-const cardName = cardPopup.querySelector('.edit-form__input_type_name');
-const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
-const photoCards = document.querySelector('.photo__cards');
-
-
-const allPopups = document.querySelectorAll('.popup');
 
 allPopups.forEach(popup => {
   popup.addEventListener("click", function (event) {
