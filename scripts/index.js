@@ -7,6 +7,7 @@ import {btnEditProfile, btnAddCard, btnClosePopup} from './utils.js';
 import {profileName, profilePopupName, profilePopupProfession, profilePopup, profileProfession} from './utils.js';
 import {cardPopup, cardName, cardLink, photoCards} from './utils.js';
 import {allPopups} from './utils.js';
+import {Section} from './Section.js';
 
 
 allPopups.forEach(popup => {
@@ -26,15 +27,22 @@ profilePopupValidator.enableValidation();
 profilePopupName.value = profileName.textContent;
 profilePopupProfession.value = profileProfession.textContent;
 
-const createCard = (item, selector, revers = false) => {
-  const card = new Card(item, selector);
-    if (revers) photoCards.prepend(card.createCard());
-    else  photoCards.append(card.createCard());
+
+const renderer = (item, reverse) => {
+  const card = new Card(item, '#photo__card');
+  const cardElement = card.createCard();
+  section.setItem(cardElement, reverse);
 }
 
-initialCards.forEach(item => {
- createCard(item, '#photo__card');
-});
+const section = new Section({
+  items:initialCards,
+  renderer
+}, '.photo__cards');
+section.renderItems();
+
+// initialCards.forEach(item => {
+//   section.renderItems(item);
+// });
 
 
 function closeByEsc(evt) {
@@ -90,10 +98,11 @@ cardPopup.addEventListener('submit', function (event) {
     name: cardName.value,
     link: cardLink.value
   }
-  createCard(cardValue, '#photo__card', true);
+  section.addItem(cardValue, true);
   closePopup(cardPopup);
   resetPopup(cardPopup);
 });
+
 
 
 
