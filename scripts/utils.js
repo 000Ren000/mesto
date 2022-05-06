@@ -48,10 +48,12 @@ export const profilePopupName = profilePopup.querySelector('.edit-form__input_ty
 export const profilePopupProfession = profilePopup.querySelector('.edit-form__input_type_profession');
 export const btnClosePopup = document.querySelectorAll('.popup__button-close');
 
-export const cardPopup = document.querySelector('#add-Form');
-export const cardName = cardPopup.querySelector('.edit-form__input_type_name');
-export const cardLink = cardPopup.querySelector('.edit-form__input_type_link');
+export const popupCard = document.querySelector('#add-Form');
+export const cardName = popupCard.querySelector('.edit-form__input_type_name');
+export const cardLink = popupCard.querySelector('.edit-form__input_type_link');
 export const photoCards = document.querySelector('.photo__cards');
 
 
 export const allPopups = document.querySelectorAll('.popup');
+
+export const cardSelector = '#add-Form';
