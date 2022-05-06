@@ -56,4 +56,3 @@ export const photoCards = document.querySelector('.photo__cards');
 
 export const allPopups = document.querySelectorAll('.popup');
 
-export const cardSelector = '#add-Form';

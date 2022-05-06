@@ -11,7 +11,7 @@ export default class Popup {
     }
   }
 
-   closePopup(container) {
+   closePopup(container = this._container) {
     container.classList.remove('popup_opened');
     const form = container.querySelector('.edit-form');
     form.removeEventListener('keydown', (evt) => this._handleEscClos(container));

@@ -9,9 +9,8 @@ import {btnEditProfile, btnAddCard, btnClosePopup} from './utils.js';
 import {profileName, profilePopupName, profilePopupProfession, profilePopup, profileProfession} from './utils.js';
 import {popupCard, cardName, cardLink, photoCards} from './utils.js';
 import {allPopups} from './utils.js';
-import {cardSelector} from './utils.js';
 
-const cardPopup = new Popup(cardSelector);
+const cardPopup = new Popup('#add-Form');
 
 // allPopups.forEach(popup => {
 //   popup.addEventListener("click", function (event) {
@@ -99,7 +98,7 @@ popupCard.addEventListener('submit', function (event) {
     link: cardLink.value
   }
   section.addItem(cardValue, true);
-  // closePopup(cardPopup);
+  cardPopup.closePopup();
   // resetPopup(cardPopup);
 });
 
