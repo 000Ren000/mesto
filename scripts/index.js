@@ -10,13 +10,7 @@ import PopupWithForm from './PopupWithForm.js';
 
 
 const cardPopup = new PopupWithForm('#add-Form');
-// allPopups.forEach(popup => {
-//   popup.addEventListener("click", function (event) {
-//     if (event.target === event.currentTarget) {
-//       // closePopup(popup); //todo ClosePopup
-//     }
-//   });
-// });
+
 
 const cardPopupValitator = new FormValidator(param, popupCard);
 cardPopupValitator.enableValidation();
