@@ -1,17 +1,15 @@
 import {Card} from './Card.js';
 import {Section} from './Section.js';
 import Popup from './Popup.js';
-
 import {FormValidator} from './FormValidator.js';
-import {initialCards} from './utils.js';
-import {param} from './utils.js';
-import {btnEditProfile, btnAddCard, btnClosePopup} from './utils.js';
-import {profileName, profilePopupName, profilePopupProfession, profilePopup, profileProfession} from './utils.js';
-import {popupCard, cardName, cardLink, photoCards} from './utils.js';
-import {allPopups} from './utils.js';
+import {initialCards, param, btnEditProfile, btnAddCard,
+  btnClosePopup, profileName, profilePopupName, profilePopupProfession,
+  profilePopup, profileProfession, popupCard, cardName,
+  cardLink, photoCards ,allPopups} from './utils.js';
+import PopupWithForm from './PopupWithForm.js';
 
-const cardPopup = new Popup('#add-Form');
 
+const cardPopup = new PopupWithForm('#add-Form');
 // allPopups.forEach(popup => {
 //   popup.addEventListener("click", function (event) {
 //     if (event.target === event.currentTarget) {
