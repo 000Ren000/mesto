@@ -1,12 +1,13 @@
 import PopupWithImage from './PopupWithImage.js';
 export class Card {
-  constructor(cardDetails, selector) {
+  constructor(cardDetails, selector, handleCardClick) {
     this._name = cardDetails.name;
     this._link = cardDetails.link;
     this._card = document.querySelector(selector)
       .content
       .querySelector('.card')
       .cloneNode(true);
+    this._handleCardClick = handleCardClick;
   }
 
     _setEvents() {
@@ -29,9 +30,12 @@ export class Card {
         // image.alt = this._name;
         // imageDescription.textContent = this._card.querySelector('.card__title').textContent;
         // imagePopup.classList.add('popup_opened');
-        const imgPopup = new PopupWithImage('#image-popup');
-        imgPopup.openPopup(this._link, this._name);
-        imgPopup.setEventListener();
+        //
+        // const imgPopup = new PopupWithImage('#image-popup');
+        // imgPopup.openPopup(this._link, this._name);
+        // imgPopup.setEventListener();
+        //
+        this._handleCardClick(this._link, this._name);
 
       });
     }

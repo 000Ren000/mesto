@@ -46,9 +46,9 @@ export const profileSelectors = {
   elementName: '.profile__name',
   elementInfo: '.profile__profession'
 }
-export const XXXprofilePopup = document.querySelector('#edit-form');
-export const profilePopupName = XXXprofilePopup.querySelector('.edit-form__input_type_name');
-export const profilePopupProfession = XXXprofilePopup.querySelector('.edit-form__input_type_profession');
+export const profPopup = document.querySelector('#edit-form');
+export const profilePopupName = profPopup.querySelector('.edit-form__input_type_name');
+export const profilePopupProfession = profPopup.querySelector('.edit-form__input_type_profession');
 export const btnClosePopup = document.querySelectorAll('.popup__button-close');
 
 export const popupCard = document.querySelector('#add-Form');
