@@ -6,4 +6,7 @@ export default class PopupWithImage extends Popup{
 
   }
 
+  openPopup() {
+    this._container.classList.add('popup_opened');
+  }
 }

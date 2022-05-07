@@ -27,7 +27,6 @@ export default class PopupWithForm extends Popup {
 
    resetPopup(allinputs) {
     allinputs.forEach(input => input.value = null);
-    console.log(allinputs);
   }
 
   closePopup(container = this._container) {

@@ -45,20 +45,16 @@ cardPopupValitator.enableValidation();
 const profilePopupValidator = new FormValidator(param, XXXprofilePopup);
 profilePopupValidator.enableValidation();
 
-//todo 111
-// profilePopupName.value = profileName.textContent;
-// profilePopupProfession.value = profileProfession.textContent;
 
-
-const renderer = (item, reverse) => {
-  const card = new Card(item, '#photo__card');
-  const cardElement = card.createCard();
-  section.setItem(cardElement, reverse);
-}
 
 const section = new Section({
   items:initialCards,
-  renderer
+  renderer: (item, reverse) => {
+    const card = new Card(item, '#photo__card');
+    const cardElement = card.createCard();
+    section.setItem(cardElement, reverse);
+  }
+
 }, '.photo__cards');
 section.renderItems();
 
