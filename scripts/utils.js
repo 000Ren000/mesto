@@ -42,10 +42,13 @@ export const btnEditProfile = document.querySelector('.profile__edit-button');
 export const profileName = document.querySelector('.profile__name');
 export const profileProfession = document.querySelector('.profile__profession');
 export const btnAddCard = document.querySelector('.profile__add-button');
-
-export const profilePopup = document.querySelector('#edit-form');
-export const profilePopupName = profilePopup.querySelector('.edit-form__input_type_name');
-export const profilePopupProfession = profilePopup.querySelector('.edit-form__input_type_profession');
+export const profileSelectors = {
+  elementName: '.profile__name',
+  elementInfo: '.profile__profession'
+}
+export const XXXprofilePopup = document.querySelector('#edit-form');
+export const profilePopupName = XXXprofilePopup.querySelector('.edit-form__input_type_name');
+export const profilePopupProfession = XXXprofilePopup.querySelector('.edit-form__input_type_profession');
 export const btnClosePopup = document.querySelectorAll('.popup__button-close');
 
 export const popupCard = document.querySelector('#add-Form');

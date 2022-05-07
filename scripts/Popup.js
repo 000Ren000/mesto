@@ -21,11 +21,7 @@ export default class Popup {
     this._container.classList.add('popup_opened');
   }
 
-  //  resetPopup() {
-  //   cardName.value = null;
-  //   cardLink.value = null;
-  //   cardPopupValitator.disableButton();
-  // }
+
 
 
 
