@@ -1,4 +1,4 @@
-import {image, imageDescription, imagePopup} from './utils.js';
+import PopupWithImage from './PopupWithImage.js';
 export class Card {
   constructor(cardDetails, selector) {
     this._name = cardDetails.name;
@@ -25,10 +25,14 @@ export class Card {
       })
      // Открывает картинку
       btnImage.addEventListener('click',  () => {
-        image.src = this._link;
-        image.alt = this._name;
-        imageDescription.textContent = this._card.querySelector('.card__title').textContent;
-        imagePopup.classList.add('popup_opened');
+        // image.src = this._link;
+        // image.alt = this._name;
+        // imageDescription.textContent = this._card.querySelector('.card__title').textContent;
+        // imagePopup.classList.add('popup_opened');
+        const imgPopup = new PopupWithImage('#image-popup');
+        imgPopup.openPopup(this._link, this._name);
+        imgPopup.setEventListener();
+
       });
     }
 
