@@ -1,4 +1,3 @@
-
 function enableValidation (parameters) {
   const formList = Array.from(document.querySelectorAll(parameters.formSelector));
   formList.forEach(form => eventInputsForm(form));
@@ -49,13 +48,3 @@ function enableValidation (parameters) {
     }
   }
 }
-
-//   const param = {
-//   formSelector: '.edit-form',
-//   inputSelector: '.edit-form__input',
-//   submitButtonSelector: '.edit-form__button-save',
-//   inactiveButtonClass: 'popup__button_disabled',
-//   inputErrorClass: 'popup__input_type_error',
-//   errorClass: 'popup__error_visible'
-// };
-// enableValidation(param);

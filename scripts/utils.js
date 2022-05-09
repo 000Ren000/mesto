@@ -55,7 +55,5 @@ export const popupCard = document.querySelector('#add-Form');
 export const cardName = popupCard.querySelector('.edit-form__input_type_name');
 export const cardLink = popupCard.querySelector('.edit-form__input_type_link');
 export const photoCards = document.querySelector('.photo__cards');
-
-
 export const allPopups = document.querySelectorAll('.popup');
 

@@ -6,10 +6,6 @@ export default class PopupWithForm extends Popup {
     this._sender = sender;
   }
   _getInputValues(){
-    // return {
-    //     name: this._form.querySelector('.edit-form__input_type_name'),
-    //     link: this._form.querySelector('.edit-form__input_type_link')
-    // }
     return this._form.querySelectorAll('.edit-form__input');
   }
 

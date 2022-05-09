@@ -34,8 +34,6 @@ const profilePopup = new PopupWithForm('#edit-form',
   (evt) => {
      evt.preventDefault();
      profileInfo.setInfo(profilePopupName.value, profilePopupProfession.value);
-    // profileName.textContent = profilePopupName.value;
-    // profileProfession.textContent = profilePopupProfession.value;
      profilePopup.closePopup();
   });
 

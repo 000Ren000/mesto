@@ -26,17 +26,7 @@ export class Card {
       })
      // Открывает картинку
       btnImage.addEventListener('click',  () => {
-        // image.src = this._link;
-        // image.alt = this._name;
-        // imageDescription.textContent = this._card.querySelector('.card__title').textContent;
-        // imagePopup.classList.add('popup_opened');
-        //
-        // const imgPopup = new PopupWithImage('#image-popup');
-        // imgPopup.openPopup(this._link, this._name);
-        // imgPopup.setEventListener();
-        //
         this._handleCardClick(this._link, this._name);
-
       });
     }
 
