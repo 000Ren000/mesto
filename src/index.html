@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Место</title>
-    <link rel="stylesheet" href="./pages/index.css" />
+<!--    <link rel="stylesheet" href="pages/index.css" />-->
   </head>
   <body class="root">
     <header class="header">
-      <img class="header__logo" src="./images/logo.svg" alt="Логотип" />
+      <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="Логотип" />
     </header>
 
     <main class="main conteiner">
@@ -17,7 +17,7 @@
         <img
           class="profile__avatar"
           alt="Фото профиля"
-          src="./images/Avatar.jpg"
+          src="<%=require('./images/Avatar.jpg')%>"
         />
         <div class="profile__info">
           <div class="profile__capion">
@@ -131,6 +131,6 @@
       </li>
     </template>
 
-    <script src="./scripts/index.js" type="module"></script>
+    <script src="scripts/index.js" type="module"></script>
   </body>
 </html>
