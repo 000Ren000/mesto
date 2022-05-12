@@ -4,6 +4,7 @@ export default class PopupWithForm extends Popup {
   constructor(container, sender) {
     super(container);
     this._sender = sender;
+    this._form = this._container.querySelector('.edit-form');
   }
   _getInputValues(){
     return this._form.querySelectorAll('.edit-form__input');
@@ -26,9 +27,10 @@ export default class PopupWithForm extends Popup {
   }
 
   closePopup(container = this._container) {
-    container.classList.remove('popup_opened');
-    const form = container.querySelector('.edit-form');
-    form.removeEventListener('keydown', (evt) => this._handleEscClos(container));
-    this.resetPopup(this._getInputValues())
+    // container.classList.remove('popup_opened');
+    super.closePopup(this._container);
+    // const form = container.querySelector('.edit-form');
+    this._form.removeEventListener('keydown', (evt) => this._handleEscClos(container));
+    this.resetPopup(this._getInputValues());
   }
 }
