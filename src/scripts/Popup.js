@@ -14,19 +14,23 @@ export default class Popup {
    closePopup(container = this._container) {
     container.classList.remove('popup_opened');
     // const form = container.querySelector('.edit-form');
-    container.removeEventListener('keydown', (evt) => this._handleEscClos(container));
+    container.removeEventListener('keydown', (evt) => this._handleEscClos.bind(container));
   }
 
    openPopup() {
     this._container.classList.add('popup_opened');
   }
 
-  setEventListener() {
-    this._btnClose.addEventListener('click',  () => this.closePopup(this._container));
+  setEventEsc() {
     this._container.addEventListener('keydown', (evt) => this._handleEscClos.bind(evt, this._container));
-    this._container.addEventListener('click',  (event) => {
+  }
+
+  setEventListener() {
+    this._btnClose.addEventListener('click', () => this.closePopup(this._container));
+    this.setEventEsc();
+    this._container.addEventListener('click', (event) => {
       if (event.target === event.currentTarget) {
-       this.closePopup(this._container);
+        this.closePopup(this._container);
       }
     });
   }

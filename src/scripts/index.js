@@ -33,6 +33,7 @@ const profilePopup = new PopupWithForm('#edit-form',
      profileInfo.setInfo(profilePopup._getInputValues());
      profilePopup.closePopup();
   });
+profilePopup.setEventListener();
 
 const cardPopupValitator = new FormValidator(param, popupCard);
 cardPopupValitator.enableValidation();
@@ -62,7 +63,7 @@ section.renderItems();
 btnEditProfile.addEventListener('click', function (){
   fillFields();
   profilePopup.openPopup();
-  profilePopup.setEventListener();
+
 });
 
 btnAddCard.addEventListener('click', function () {
