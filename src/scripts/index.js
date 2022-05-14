@@ -20,6 +20,7 @@ const cardPopup = new PopupWithForm('#add-Form',
     cardPopup.closePopup();
     cardPopupValitator.disableButton();
   });
+cardPopup.setEventListener();
 
 const profileInfo = new UserInfo (profileSelectors);
 const fillFields = () => {
@@ -68,7 +69,6 @@ btnEditProfile.addEventListener('click', function (){
 
 btnAddCard.addEventListener('click', function () {
   cardPopup.openPopup();
-  cardPopup.setEventListener();
 });
 
 
