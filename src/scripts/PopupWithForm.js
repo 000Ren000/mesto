@@ -4,9 +4,13 @@ export default class PopupWithForm extends Popup {
   constructor(container, sender) {
     super(container);
     this._sender = sender;
+    this._inputList = this._form.querySelectorAll('.edit-form__input');
   }
+
   _getInputValues(){
-    return this._form.querySelectorAll('.edit-form__input');
+    this._formValues = {};
+    this._inputList.forEach(input => this._formValues[input.name] = input.value);
+    return this._formValues;
   }
 
   setEventListener() {
@@ -21,15 +25,15 @@ export default class PopupWithForm extends Popup {
     this._form.addEventListener('submit', this._sender);
   }
 
-   resetPopup(allinputs) {
-    allinputs.forEach(input => input.value = null);
+   resetPopup() {
+    this._inputList.forEach(input => input.value = null);
   }
 
   closePopup() {
     // container.classList.remove('popup_opened');
     // const form = container.querySelector('.edit-form');
     // form.removeEventListener('keydown', (evt) => this._handleEscClos(container));
-    super.closePopup(this._container)
-    this.resetPopup(this._getInputValues())
+    super.closePopup(this._container);
+    this.resetPopup();
   }
 }
