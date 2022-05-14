@@ -10,9 +10,9 @@ export default class UserInfo {
     }
   }
 
-  setInfo(newName, newInfo){
-    this._elementName.textContent = newName;
-    this._elementInfo.textContent = newInfo
+  setInfo({profilePopupName, profilePopupProfession}){
+    this._elementName.textContent = profilePopupName;
+    this._elementInfo.textContent = profilePopupProfession
   }
 
 }

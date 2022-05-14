@@ -16,8 +16,7 @@ import PopupWithImage from './PopupWithImage.js';
 const cardPopup = new PopupWithForm('#add-Form',
   (event) => {
     event.preventDefault();
-    const cardValue = cardPopup._getInputValues();
-    section.addItem(cardValue, true);
+    section.addItem(cardPopup._getInputValues(), true);
     cardPopup.closePopup();
     cardPopupValitator.disableButton();
   });
@@ -31,8 +30,7 @@ fillFields();
 const profilePopup = new PopupWithForm('#edit-form',
   (evt) => {
      evt.preventDefault();
-     // profileInfo.setInfo(profilePopupName.value, profilePopupProfession.value);
-     profileInfo.setInfo(profilePopupName.value, profilePopupProfession.value);
+     profileInfo.setInfo(profilePopup._getInputValues());
      profilePopup.closePopup();
   });
 
