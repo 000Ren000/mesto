@@ -40,16 +40,16 @@ cardPopupValitator.enableValidation();
 const profilePopupValidator = new FormValidator(param, profPopup);
 profilePopupValidator.enableValidation();
 
+const imgPopup = new PopupWithImage('#image-popup');
+imgPopup.setEventListener();
+
 
 const section = new Section({
   items:initialCards,
   renderer: (item, reverse) => {
     const card = new Card(item, '#photo__card',
       (link, name) => {
-        const imgPopup = new PopupWithImage('#image-popup');
         imgPopup.openPopup(link, name);
-        imgPopup.setEventListener();
-
       });
     const cardElement = card.createCard();
     section.setItem(cardElement, reverse);
