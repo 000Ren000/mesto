@@ -1,16 +1,16 @@
-import '../pages/index.css';
-import {Card} from './Card.js';
-import {Section} from './Section.js';
-import {FormValidator} from './FormValidator.js';
+import './index.css';
+import {Card} from '../components/Card.js';
+import {Section} from '../components/Section.js';
+import {FormValidator} from '../components/FormValidator.js';
 import {
   initialCards, param, btnEditProfile, btnAddCard,
   profilePopupName, profilePopupProfession,
   profPopup, popupCard, cardName,
   cardLink, profileSelectors
-} from './utils.js';
-import PopupWithForm from './PopupWithForm.js';
-import UserInfo from './UserInfo.js';
-import PopupWithImage from './PopupWithImage.js';
+} from '../scripts/utils.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import UserInfo from '../components/UserInfo.js';
+import PopupWithImage from '../components/PopupWithImage.js';
 
 
 const cardPopup = new PopupWithForm('#add-Form',
