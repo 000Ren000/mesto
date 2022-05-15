@@ -16,7 +16,7 @@ import PopupWithImage from '../components/PopupWithImage.js';
 const cardPopup = new PopupWithForm('#add-Form',
   (event) => {
     event.preventDefault();
-    section.addItem(cardPopup._getInputValues(), true);
+    section.addItem(cardPopup.getInputValues(), true);
     cardPopup.closePopup();
     cardPopupValitator.disableButton();
   });
@@ -31,7 +31,7 @@ fillFields();
 const profilePopup = new PopupWithForm('#edit-form',
   (evt) => {
      evt.preventDefault();
-     profileInfo.setInfo(profilePopup._getInputValues());
+     profileInfo.setInfo(profilePopup.getInputValues());
      profilePopup.closePopup();
   });
 profilePopup.setEventListener();
@@ -45,16 +45,19 @@ profilePopupValidator.enableValidation();
 const imgPopup = new PopupWithImage('#image-popup');
 imgPopup.setEventListener();
 
+const createCard = (item) => {
+  const card = new Card(item, '#photo__card',
+    (link, name) => {
+      imgPopup.openPopup(link, name);
+    });
+  const cardElement = card.createCard();
+  return cardElement
+}
 
 const section = new Section({
   items:initialCards,
   renderer: (item, reverse) => {
-    const card = new Card(item, '#photo__card',
-      (link, name) => {
-        imgPopup.openPopup(link, name);
-      });
-    const cardElement = card.createCard();
-    section.setItem(cardElement, reverse);
+    section.setItem(createCard(item), reverse);
   }
 
 }, '.photo__cards');
