@@ -19,7 +19,7 @@ export default class PopupWithForm extends Popup {
   }
 
    resetPopup() {
-    this._inputList.forEach(input => input.value = null);
+     this._form.reset();
   }
 
   closePopup() {
