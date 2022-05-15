@@ -74,5 +74,3 @@ btnAddCard.addEventListener('click', function () {
 
 
 
-
-
