@@ -2,6 +2,7 @@ export class Card {
   constructor(cardDetails, selector, handleCardClick) {
     this._name = cardDetails.name;
     this._link = cardDetails.link;
+    this._likes = cardDetails.likes;
     this._card = document.querySelector(selector)
       .content
       .querySelector('.card')
@@ -32,6 +33,7 @@ export class Card {
       _cardImage.src = this._link;
       _cardImage.alt = this._name;
       this._card.querySelector('.card__title').textContent = this._name;
+      this._card.querySelector('.card__like-counter').textContent = this._likes.length;
       this._setEventListeners(this._card);
       return this._card;
     }

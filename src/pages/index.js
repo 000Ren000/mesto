@@ -14,12 +14,6 @@ import Api from '../components/Api.js';
 
 
 const cardPopup = new PopupWithForm('#add-Form',
-  // (event) => {
-  //   event.preventDefault();
-  //   section.addItem(cardPopup.getInputValues(), true);
-  //   cardPopup.closePopup();
-  //   cardPopupValitator.disableButton();
-  // });
   (event) => {
     event.preventDefault();
     cardApi.setNewCardInfo(cardPopup.getInputValues())
