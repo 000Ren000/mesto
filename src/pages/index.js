@@ -11,6 +11,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Api from '../components/Api.js';
+import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 
 
 const cardPopup = new PopupWithForm('#add-Form',
@@ -26,7 +27,7 @@ const cardPopup = new PopupWithForm('#add-Form',
 cardPopup.setEventListener();
 
 const profileInfo = new UserInfo (profileSelectors);
-
+const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
 
 const profileApi = new Api({
   baseURL: 'https://nomoreparties.co/v1/cohort-41/users/me',
@@ -73,6 +74,9 @@ const createCard = (item) => {
   const card = new Card(item, '#photo__card',
     (link, name) => {
       imgPopup.openPopup(link, name);
+    },
+    () => {
+      popupWithConfirmation.openPopup();
     });
   const cardElement = card.createCard();
   return cardElement
@@ -88,6 +92,7 @@ const section = new Section({
 }, '.photo__cards');
 cardApi.getCardInfo().then(data => {
   section.renderItems(data);
+  console.log(data);
 }).catch(err => console.log('что-то пошло не так', err));
 
 btnEditProfile.addEventListener('click', function (){
