@@ -66,9 +66,6 @@ const profilePopup = new PopupWithForm('#edit-form',
 profilePopup.setEventListener();
 
 
-
-
-
 const imgPopup = new PopupWithImage('#image-popup');
 imgPopup.setEventListener();
 

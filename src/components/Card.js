@@ -19,7 +19,7 @@ export class Card {
         this._btnLike.classList.toggle('card__button-like_active'));
       //Удаление карточки
       this._btnRemoveCard.addEventListener('click',  () => {
-        this._card.remove();
+        this._card.remove(); //todo  <==== Удаление каточки
         this._card = null;
       })
      // Открывает картинку
