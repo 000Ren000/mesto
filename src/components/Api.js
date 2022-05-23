@@ -23,9 +23,8 @@ export default class Api {
     })
       .then(res => {
         if (res.ok) return res.json();
-        else console.log(`Что-то пошло нетак... ${res.status}`);
-      }).then(data => data)
-      .catch(err => console.log('Ошибка соедиенения с сервисом ', err));
+        else return Promise.reject(`Ошибка: ${res.status}`);
+      });
   }
 
   setProfileInfo({name, about}) {
@@ -39,9 +38,8 @@ export default class Api {
     })
       .then(res => {
         if (res.ok) return res.json();
-        else console.log(`Что-то пошло нетак... ${res.status}`);
-      }).then(data => data)
-      .catch(err => console.log('Ошибка соедиенения с сервисом ', err));
+        else return Promise.reject(`Ошибка: ${res.status}`);
+      });
   }
 
   setNewCardInfo({name, link}) {
@@ -55,8 +53,7 @@ export default class Api {
     })
       .then(res => {
         if (res.ok) return res.json();
-        else console.log(`Что-то пошло нетак... ${res.status}`);
-      }).then(data => data)
-      .catch(err => console.log('Ошибка соедиенения с сервисом ', err));
+        else return Promise.reject(`Ошибка: ${res.status}`);
+      });
   }
 }
