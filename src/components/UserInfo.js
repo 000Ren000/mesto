@@ -1,7 +1,8 @@
 export default class UserInfo {
-  constructor({elementName, elementInfo}) {
+  constructor({elementName, elementInfo, elementImage}) {
     this._elementName = document.querySelector(elementName);
     this._elementInfo = document.querySelector(elementInfo);
+    this._elementImage = document.querySelector(elementImage);
   }
   getInfo() {
     return {
@@ -10,9 +11,13 @@ export default class UserInfo {
     }
   }
 
-  setInfo({profilePopupName, profilePopupProfession}){
-    this._elementName.textContent = profilePopupName;
-    this._elementInfo.textContent = profilePopupProfession
+  setInfo({name, about, avatar}){
+    this._elementName.textContent = name;
+    this._elementInfo.textContent = about
+    this._elementImage.src = avatar;
   }
+
+
+
 
 }

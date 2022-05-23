@@ -16,13 +16,13 @@
       <section class="profile">
         <img
           class="profile__avatar"
-          alt="Фото профиля"
-          src="<%=require('./images/Avatar.jpg')%>"
-        />
+          alt="Фото профиля"/>
+<!--          src="<%=require('./images/Avatar.jpg')%>" />-->
+
         <div class="profile__info">
           <div class="profile__capion">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <p class="profile__profession">Исследователь океана</p>
+            <h1 class="profile__name"></h1>
+            <p class="profile__profession"></p>
           </div>
           <button
             type="button"
@@ -48,7 +48,7 @@
       <div class="popup__conteiner">
         <form name="editForm" class="edit-form" novalidate>
           <h2 class="edit-form__title">Редактировать профиль</h2>
-          <input name="profilePopupName"
+          <input name="name"
                  type="text"
                  class="edit-form__input edit-form__input_type_name"
                  id="input-profile-name"
@@ -57,7 +57,7 @@
                  required
           />
           <span class="popup__error" id="input-profile-name-error" ></span>
-          <input name="profilePopupProfession"
+          <input name="about"
                  type="text"
                  class="edit-form__input edit-form__input_type_profession"
                  id="input-profession"
@@ -125,7 +125,10 @@
         </div>
         <div class="card__description">
           <h2 class="card__title"></h2>
+          <div class="card__like-container">
           <button type="button" class="card__button-like"></button>
+          <span class="card__like-counter">9</span>
+          </div>
         </div>
         <button class="card__trash link"></button>
       </li>

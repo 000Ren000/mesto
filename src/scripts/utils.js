@@ -44,7 +44,8 @@ export const profileProfession = document.querySelector('.profile__profession');
 export const btnAddCard = document.querySelector('.profile__add-button');
 export const profileSelectors = {
   elementName: '.profile__name',
-  elementInfo: '.profile__profession'
+  elementInfo: '.profile__profession',
+  elementImage: '.profile__avatar'
 }
 export const profPopup = document.querySelector('#edit-form');
 export const profilePopupName = profPopup.querySelector('.edit-form__input_type_name');
@@ -56,4 +57,7 @@ export const cardName = popupCard.querySelector('.edit-form__input_type_name');
 export const cardLink = popupCard.querySelector('.edit-form__input_type_link');
 export const photoCards = document.querySelector('.photo__cards');
 export const allPopups = document.querySelectorAll('.popup');
-
+export const key = {
+  authorization: '2e1e6251-c43e-48e5-b292-2b34f8f03df1',
+  'Content-Type': 'application/json'
+}
