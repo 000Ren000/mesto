@@ -19,11 +19,13 @@ export class Card {
 
     _setEventListeners() {
       //Ставит лайк
-      this._btnLike.addEventListener('click',  () =>
-        this._btnLike.classList.toggle('card__button-like_active'));
+      this._btnLike.addEventListener('click',  () =>{
+
+        this._btnLike.classList.toggle('card__button-like_active')
+      });
       //Удаление карточки
       this._btnRemoveCard.addEventListener('click',  () => {
-          this._openedPopupWithConfirmation();
+        this._openedPopupWithConfirmation();
         // this._card.remove();
         // this._card = null;
       })
@@ -33,7 +35,7 @@ export class Card {
       });
     }
 
-    removieCard() {
+    removeCard() {
        this._card.remove();
        this._card = null;
     }

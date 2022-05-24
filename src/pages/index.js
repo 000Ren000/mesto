@@ -75,7 +75,19 @@ const createCard = (item) => {
       imgPopup.openPopup(link, name);
     },
     () => {
-      popupWithConfirmation.openPopup(item);
+      popupWithConfirmation.setSubmitAction(
+        (evt) => {
+        evt.preventDefault();
+        cardApi.deleteCard(item._id).then(res => {
+          console.log(`Карточка ${item.name}`, res.message);
+          card.removeCard();
+        })
+          .catch(err => {
+            console.log('Что-то пошло не так', err);
+          });
+        popupWithConfirmation.closePopup();
+      });
+      popupWithConfirmation.openPopup();
     });
   const cardElement = card.createCard();
   return cardElement
@@ -87,16 +99,7 @@ const section = new Section({
   }
 }, '.photo__cards');
 
-const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation',
-  (evt, item) => {
-    evt.preventDefault();
-    cardApi.deleteCard(item._id).then(res => console.log(`Карточка ${item.name}`,res.message))
-      .catch(err => {
-      console.log('Что-то пошло не так', err);
-    });
-    popupWithConfirmation.closePopup();
-  }
-);
+const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
 
 cardApi.getCardInfo().then(data => {
   section.renderItems(data);
