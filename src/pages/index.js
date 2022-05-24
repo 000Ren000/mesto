@@ -27,7 +27,6 @@ const cardPopup = new PopupWithForm('#add-Form',
 cardPopup.setEventListener();
 
 const profileInfo = new UserInfo (profileSelectors);
-const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
 
 const profileApi = new Api({
   baseURL: 'https://nomoreparties.co/v1/cohort-41/users/me',
@@ -76,23 +75,31 @@ const createCard = (item) => {
       imgPopup.openPopup(link, name);
     },
     () => {
-      popupWithConfirmation.openPopup();
+      popupWithConfirmation.openPopup(item);
     });
   const cardElement = card.createCard();
   return cardElement
 }
 
-
-
 const section = new Section({
   renderer: (item, reverse) => {
     section.setItem(createCard(item), reverse);
   }
-
 }, '.photo__cards');
+
+const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation',
+  (evt, item) => {
+    evt.preventDefault();
+    cardApi.deleteCard(item._id).then(res => console.log(`Карточка ${item.name}`,res.message))
+      .catch(err => {
+      console.log('Что-то пошло не так', err);
+    });
+    popupWithConfirmation.closePopup();
+  }
+);
+
 cardApi.getCardInfo().then(data => {
   section.renderItems(data);
-  console.log(data);
 }).catch(err => console.log('что-то пошло не так', err));
 
 btnEditProfile.addEventListener('click', function (){

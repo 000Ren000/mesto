@@ -1,5 +1,5 @@
 export class Card {
-  constructor(cardDetails, selector, handleCardClick, handleCardRemove) {
+  constructor(cardDetails, selector, handleCardClick, openedPopupWithConfirmation) {
     this._name = cardDetails.name;
     this._link = cardDetails.link;
     this._likes = cardDetails.likes;
@@ -9,12 +9,13 @@ export class Card {
       .querySelector('.card')
       .cloneNode(true);
     this._handleCardClick = handleCardClick;
-    this._handleCardRemovie = handleCardRemove;
+    this._openedPopupWithConfirmation = openedPopupWithConfirmation;
     this._btnLike = this._card.querySelector('.card__button-like');
     this._btnRemoveCard = this._card.querySelector('.card__trash');
     this._btnImage = this._card.querySelector('.card__image');
     this._myId = '95a3a8fa0edff34a5b5acb86';
   }
+
 
     _setEventListeners() {
       //Ставит лайк
@@ -22,8 +23,8 @@ export class Card {
         this._btnLike.classList.toggle('card__button-like_active'));
       //Удаление карточки
       this._btnRemoveCard.addEventListener('click',  () => {
-          this._handleCardRemovie();
-        // this._card.remove(); //todo  <==== Удаление каточки
+          this._openedPopupWithConfirmation();
+        // this._card.remove();
         // this._card = null;
       })
      // Открывает картинку
@@ -32,6 +33,10 @@ export class Card {
       });
     }
 
+    removieCard() {
+       this._card.remove();
+       this._card = null;
+    }
     createCard() {
       const _cardImage = this._card.querySelector('.card__image');
       _cardImage.src = this._link;

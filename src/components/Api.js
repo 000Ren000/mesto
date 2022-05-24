@@ -1,3 +1,5 @@
+import {exportTypedArrayMethod} from 'core-js/internals/array-buffer-view-core.js';
+
 export default class Api {
   constructor(option) {
     this._baseURL = option.baseURL;
@@ -55,5 +57,15 @@ export default class Api {
         if (res.ok) return res.json();
         else return Promise.reject(`Ошибка: ${res.status}`);
       });
+  }
+
+  deleteCard(cardId) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-41/cards/${cardId}`, {
+      method: 'DELETE',
+      headers: this._headers
+    }).then(res => {
+      if (res.ok) return res.json();
+      else return Promise.reject(`Ошибка: ${res.status}`);
+    });
   }
 }
