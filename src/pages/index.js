@@ -88,6 +88,8 @@ const createCard = (item) => {
         popupWithConfirmation.closePopup();
       });
       popupWithConfirmation.openPopup();
+    },
+    () => {
     });
   const cardElement = card.createCard();
   return cardElement

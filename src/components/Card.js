@@ -1,5 +1,8 @@
 export class Card {
-  constructor(cardDetails, selector, handleCardClick, openedPopupWithConfirmation) {
+  constructor(cardDetails, selector,
+              handleCardClick, openedPopupWithConfirmation,
+              handleLikeClick)
+  {
     this._name = cardDetails.name;
     this._link = cardDetails.link;
     this._likes = cardDetails.likes;
@@ -9,6 +12,7 @@ export class Card {
       .querySelector('.card')
       .cloneNode(true);
     this._handleCardClick = handleCardClick;
+    this._handleLikeClick = handleLikeClick;
     this._openedPopupWithConfirmation = openedPopupWithConfirmation;
     this._btnLike = this._card.querySelector('.card__button-like');
     this._btnRemoveCard = this._card.querySelector('.card__trash');
@@ -20,14 +24,12 @@ export class Card {
     _setEventListeners() {
       //Ставит лайк
       this._btnLike.addEventListener('click',  () =>{
-
-        this._btnLike.classList.toggle('card__button-like_active')
+          this._handleLikeClick();
+        // this._btnLike.classList.toggle('card__button-like_active')
       });
       //Удаление карточки
       this._btnRemoveCard.addEventListener('click',  () => {
         this._openedPopupWithConfirmation();
-        // this._card.remove();
-        // this._card = null;
       })
      // Открывает картинку
       this._btnImage.addEventListener('click',  () => {
