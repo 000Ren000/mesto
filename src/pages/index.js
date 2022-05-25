@@ -12,6 +12,7 @@ import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Api from '../components/Api.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
+import {PopupWithAvatar} from '../components/PopupWithAvatar.js';
 
 
 const cardPopup = new PopupWithForm('#add-Form',
@@ -27,7 +28,7 @@ const cardPopup = new PopupWithForm('#add-Form',
 cardPopup.setEventListener();
 
 const profileInfo = new UserInfo (profileSelectors);
-
+// Создание Апи
 const profileApi = new Api({
   baseURL: 'https://nomoreparties.co/v1/cohort-41/users/me',
   headers: key
@@ -37,8 +38,40 @@ const cardApi = new Api({
   headers: key
 });
 
+profileApi.getProfileinfo()
+  .then(data => {
+    profileInfo.setInfo(data);
+  })
+  .catch(err => console.log('что-то пошло не так', err));
 
+cardApi.getCardInfo().then(data => {
+  section.renderItems(data);
+}).catch(err => console.log('что-то пошло не так', err));
 
+// Создание попапов
+const profilePopup = new PopupWithForm('#edit-form',
+  (evt) => {
+    evt.preventDefault();
+    profileApi.setProfileInfo(profilePopup.getInputValues())
+      .then(res => profileInfo.setInfo(res))
+      .catch(err => console.log('Что-то пошло не так', err));
+    profilePopup.closePopup();
+  });
+const imgPopup = new PopupWithImage('#image-popup');
+const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
+const popupWithAvatar = new PopupWithAvatar('#popup-avatar');
+
+//Вставка в разметку
+const section = new Section({
+  renderer: (item, reverse) => {
+    section.setItem(createCard(item), reverse);
+  }
+}, '.photo__cards');
+
+profilePopup.setEventListener();
+imgPopup.setEventListener();
+
+//Создание валидации
 const profilePopupValidator = new FormValidator(param, profPopup);
 profilePopupValidator.enableValidation();
 const cardPopupValitator = new FormValidator(param, popupCard);
@@ -48,27 +81,7 @@ const fillFields = () => {
   profilePopupName.value = profileInfo.getInfo().name;
   profilePopupProfession.value = profileInfo.getInfo().info;
 }
-profileApi.getProfileinfo()
-  .then(data => {
-    profileInfo.setInfo(data);
-  })
-  .catch(err => console.log('что-то пошло не так', err));
-
-fillFields();
-const profilePopup = new PopupWithForm('#edit-form',
-  (evt) => {
-     evt.preventDefault();
-    profileApi.setProfileInfo(profilePopup.getInputValues())
-         .then(res => profileInfo.setInfo(res))
-      .catch(err => console.log('Что-то пошло не так', err));
-     profilePopup.closePopup();
-  });
-profilePopup.setEventListener();
-
-
-const imgPopup = new PopupWithImage('#image-popup');
-imgPopup.setEventListener();
-
+//Создание карточек
 const createCard = (item) => {
   const card = new Card(item, '#photo__card',
     (link, name) => {
@@ -77,20 +90,20 @@ const createCard = (item) => {
     () => {
       popupWithConfirmation.setSubmitAction(
         (evt) => {
-        evt.preventDefault();
-        cardApi.deleteCard(item._id).then(res => {
-          console.log(`Карточка ${item.name}`, res.message);
-          card.removeCard();
-        })
-          .catch(err => {
-            console.log('Что-то пошло не так', err);
-          });
-        popupWithConfirmation.closePopup();
-      });
+          evt.preventDefault();
+          cardApi.deleteCard(item._id).then(res => {
+            console.log(`Карточка ${item.name}`, res.message);
+            card.removeCard();
+          })
+            .catch(err => {
+              console.log('Что-то пошло не так', err);
+            });
+          popupWithConfirmation.closePopup();
+        });
       popupWithConfirmation.openPopup();
     },
     () => {
-    const likeStatus = !card.isLiked();
+      const likeStatus = !card.isLiked();
       if (likeStatus)
         cardApi.likedCard(item._id)
           .then(res => {
@@ -99,31 +112,19 @@ const createCard = (item) => {
       else
         cardApi.unlikedCard(item._id).then(res => {
           card.refreshCounter(res.likes, likeStatus)
-          })
+        })
           .catch(err => console.log('Что то пошло не так', err));
     });
   const cardElement = card.createCard();
   return cardElement
 }
+fillFields();
 
-const section = new Section({
-  renderer: (item, reverse) => {
-    section.setItem(createCard(item), reverse);
-  }
-}, '.photo__cards');
-
-const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
-
-cardApi.getCardInfo().then(data => {
-  section.renderItems(data);
-}).catch(err => console.log('что-то пошло не так', err));
-
+//Кнопки на сайте
 btnEditProfile.addEventListener('click', function (){
   fillFields();
   profilePopup.openPopup();
-
 });
-
 btnAddCard.addEventListener('click', function () {
   cardPopup.openPopup();
 });
