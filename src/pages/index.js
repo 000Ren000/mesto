@@ -14,20 +14,6 @@ import Api from '../components/Api.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 import {PopupWithAvatar} from '../components/PopupWithAvatar.js';
 
-
-const cardPopup = new PopupWithForm('#add-Form',
-  (event) => {
-    event.preventDefault();
-    cardApi.setNewCardInfo(cardPopup.getInputValues())
-      .then(res => {
-        section.addItem(res, true);
-      }).catch(err => console.log('что-то пошло не так', err));
-    cardPopup.closePopup();
-    cardPopupValitator.disableButton();
-  });
-cardPopup.setEventListener();
-
-const profileInfo = new UserInfo (profileSelectors);
 // Создание Апи
 const profileApi = new Api({
   baseURL: 'https://nomoreparties.co/v1/cohort-41/users/me',
@@ -57,9 +43,23 @@ const profilePopup = new PopupWithForm('#edit-form',
       .catch(err => console.log('Что-то пошло не так', err));
     profilePopup.closePopup();
   });
+const cardPopup = new PopupWithForm('#add-Form',
+  (event) => {
+    event.preventDefault();
+    cardApi.setNewCardInfo(cardPopup.getInputValues())
+      .then(res => {
+        section.addItem(res, true);
+      }).catch(err => console.log('что-то пошло не так', err));
+    cardPopup.closePopup();
+    cardPopupValitator.disableButton();
+  });
 const imgPopup = new PopupWithImage('#image-popup');
 const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
 const popupWithAvatar = new PopupWithAvatar('#popup-avatar');
+
+
+const profileInfo = new UserInfo (profileSelectors);
+
 
 //Вставка в разметку
 const section = new Section({
@@ -69,6 +69,7 @@ const section = new Section({
 }, '.photo__cards');
 
 profilePopup.setEventListener();
+cardPopup.setEventListener();
 imgPopup.setEventListener();
 
 //Создание валидации
@@ -81,6 +82,8 @@ const fillFields = () => {
   profilePopupName.value = profileInfo.getInfo().name;
   profilePopupProfession.value = profileInfo.getInfo().info;
 }
+
+
 //Создание карточек
 const createCard = (item) => {
   const card = new Card(item, '#photo__card',
