@@ -78,4 +78,14 @@ export default class Api {
       else return Promise.reject(`Ошибка: ${res.status}`);
     });
   }
+
+  unlikedCard(cardId) {
+    return fetch(`https://mesto.nomoreparties.co/v1/cohort-41/cards/${cardId}/likes`, {
+      method: 'DELETE',
+      headers: this._headers
+    }).then(res => {
+      if (res.ok) return res.json();
+      else return Promise.reject(`Ошибка: ${res.status}`);
+    });
+  }
 }

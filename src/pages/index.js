@@ -90,6 +90,17 @@ const createCard = (item) => {
       popupWithConfirmation.openPopup();
     },
     () => {
+    const likeStatus = !card.isLiked();
+      if (likeStatus)
+        cardApi.likedCard(item._id)
+          .then(res => {
+            card.refreshCounter(res.likes, likeStatus);
+          }).catch(err => console.log('Что то пошло не так', err));
+      else
+        cardApi.unlikedCard(item._id).then(res => {
+          card.refreshCounter(res.likes, likeStatus)
+          })
+          .catch(err => console.log('Что то пошло не так', err));
     });
   const cardElement = card.createCard();
   return cardElement

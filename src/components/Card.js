@@ -17,6 +17,7 @@ export class Card {
     this._btnLike = this._card.querySelector('.card__button-like');
     this._btnRemoveCard = this._card.querySelector('.card__trash');
     this._btnImage = this._card.querySelector('.card__image');
+    this._likeCounter = this._card.querySelector('.card__like-counter');
     this._myId = '95a3a8fa0edff34a5b5acb86';
   }
 
@@ -25,7 +26,6 @@ export class Card {
       //Ставит лайк
       this._btnLike.addEventListener('click',  () =>{
           this._handleLikeClick();
-        // this._btnLike.classList.toggle('card__button-like_active')
       });
       //Удаление карточки
       this._btnRemoveCard.addEventListener('click',  () => {
@@ -37,6 +37,12 @@ export class Card {
       });
     }
 
+    isLiked() {
+      if ((this._likes.find(item =>
+        item._id === this._myId) !== undefined)) return true;
+    }
+
+
     removeCard() {
        this._card.remove();
        this._card = null;
@@ -46,11 +52,19 @@ export class Card {
       _cardImage.src = this._link;
       _cardImage.alt = this._name;
       this._card.querySelector('.card__title').textContent = this._name;
-      this._card.querySelector('.card__like-counter').textContent = this._likes.length;
+      this.refreshCounter(this._likes, this.isLiked());
       this._setEventListeners(this._card);
       if (this._id === this._myId) this._btnRemoveCard.classList.remove('card__trash_hidden');
       return this._card;
     }
 
-
+    _setLikes(likes) {
+    this._likes = likes;
+    }
+    refreshCounter(likes, likeStatus) {
+      this._likeCounter.textContent = likes.length;
+      this._setLikes(likes);
+      if (likeStatus) this._btnLike.classList.add('card__button-like_active');
+      else this._btnLike.classList.remove('card__button-like_active');
+    }
 }
