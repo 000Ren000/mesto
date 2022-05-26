@@ -12,24 +12,24 @@ import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Api from '../components/Api.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
+let userId;
+
 
 // Создание Апи
-const profileApi = new Api({
-  baseURL: 'https://nomoreparties.co/v1/cohort-41/users/me',
-  headers: key
-});
-const cardApi = new Api({
-  baseURL: 'https://mesto.nomoreparties.co/v1/cohort-41/cards',
+const api = new Api({
+  baseURL:'https://nomoreparties.co/v1/cohort-41',
   headers: key
 });
 
-profileApi.getProfileinfo()
+
+api.getProfileinfo()
   .then(data => {
+    userId = data._id;
     profileInfo.setInfo(data);
   })
   .catch(err => console.log('что-то пошло не так', err));
 
-cardApi.getCardInfo().then(data => {
+api.getCardInfo().then(data => {
   section.renderItems(data);
 }).catch(err => console.log('что-то пошло не так', err));
 
@@ -38,7 +38,7 @@ const profilePopup = new PopupWithForm('#edit-form',
   (evt) => {
     evt.preventDefault();
     profilePopup.showWaiting();
-    profileApi.setProfileInfo(profilePopup.getInputValues())
+    api.setProfileInfo(profilePopup.getInputValues())
       .then(res => {
         profileInfo.setInfo(res);
         profilePopup.closePopup();
@@ -49,7 +49,7 @@ const profilePopup = new PopupWithForm('#edit-form',
 const cardPopup = new PopupWithForm('#add-Form',
   (event) => {
     event.preventDefault();
-    cardApi.setNewCardInfo(cardPopup.getInputValues())
+    api.setNewCardInfo(cardPopup.getInputValues())
       .then(res => {
         section.addItem(res, true);
       }).catch(err => console.log('что-то пошло не так', err));
@@ -94,6 +94,7 @@ const fillFields = () => {
 //Создание карточек
 const createCard = (item) => {
   const card = new Card(item, '#photo__card',
+    userId,
     (link, name) => {
       imgPopup.openPopup(link, name);
     },
@@ -101,7 +102,7 @@ const createCard = (item) => {
       popupWithConfirmation.setSubmitAction(
         (evt) => {
           evt.preventDefault();
-          cardApi.deleteCard(item._id).then(res => {
+          api.deleteCard(item._id).then(res => {
             console.log(`Карточка ${item.name}`, res.message);
             card.removeCard();
           })
@@ -115,12 +116,12 @@ const createCard = (item) => {
     () => {
       const likeStatus = !card.isLiked();
       if (likeStatus)
-        cardApi.likedCard(item._id)
+        api.likedCard(item._id)
           .then(res => {
             card.refreshCounter(res.likes, likeStatus);
           }).catch(err => console.log('Что то пошло не так', err));
       else
-        cardApi.unlikedCard(item._id).then(res => {
+        api.unlikedCard(item._id).then(res => {
           card.refreshCounter(res.likes, likeStatus)
         })
           .catch(err => console.log('Что то пошло не так', err));
@@ -142,7 +143,7 @@ btnAvatar.addEventListener('click', () => {
     evt.preventDefault();
     const link = avatarPopup.getInputValues().link;
     avatarPopup.showWaiting();
-    profileApi.changeAvatar(link)
+    api.changeAvatar(link)
       .then(res => {
         profileInfo.setInfo(res);
         avatarPopup.resetPopup();

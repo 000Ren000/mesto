@@ -1,5 +1,5 @@
 export class Card {
-  constructor(cardDetails, selector,
+  constructor(cardDetails, selector, userId,
               handleCardClick, openedPopupWithConfirmation,
               handleLikeClick)
   {
@@ -18,7 +18,7 @@ export class Card {
     this._btnRemoveCard = this._card.querySelector('.card__trash');
     this._btnImage = this._card.querySelector('.card__image');
     this._likeCounter = this._card.querySelector('.card__like-counter');
-    this._myId = '95a3a8fa0edff34a5b5acb86';
+    this._myId = userId;
   }
 
 

@@ -11,16 +11,15 @@ export default class Api {
     else return Promise.reject(`Ошибка: ${res.status}`);
   }
   getProfileinfo() {
-    return fetch(this._baseURL, {
+    return fetch(this._baseURL+'/users/me', {
       method: 'GET',
       headers: this._headers
     })
       .then(res => this._checkResponse(res)).then(data => data)
-      .catch(err => console.log('Ошибка соедиенения с сервисом ', err));
   }
 
   getCardInfo() {
-    return fetch(this._baseURL, {
+    return fetch(this._baseURL+'/cards', {
       method: 'GET',
       headers: this._headers
     })
@@ -28,7 +27,7 @@ export default class Api {
   }
 
   setProfileInfo({name, about}) {
-    return fetch(this._baseURL, {
+    return fetch(this._baseURL+'/users/me', {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -40,7 +39,7 @@ export default class Api {
   }
 
   changeAvatar(avatar) {
-    return fetch(this._baseURL+`/avatar`, {
+    return fetch(this._baseURL+`/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
@@ -50,7 +49,7 @@ export default class Api {
   }
 
   setNewCardInfo({name, link}) {
-    return fetch(this._baseURL, {
+    return fetch(this._baseURL+'/cards', {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({
@@ -62,21 +61,21 @@ export default class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(this._baseURL+`/${cardId}`, {
+    return fetch(this._baseURL+`/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
     }).then(res => this._checkResponse(res));
   }
 
   likedCard(cardId) {
-    return fetch(this._baseURL+`/${cardId}/likes`, {
+    return fetch(this._baseURL+`/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers
     }).then(res => this._checkResponse(res));
   }
 
   unlikedCard(cardId) {
-    return fetch(this._baseURL+`/${cardId}/likes`, {
+    return fetch(this._baseURL+`/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers
     }).then(res => this._checkResponse(res));
