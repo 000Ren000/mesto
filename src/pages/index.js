@@ -41,10 +41,12 @@ const profilePopup = new PopupWithForm('#edit-form',
     api.setProfileInfo(profilePopup.getInputValues())
       .then(res => {
         profileInfo.setInfo(res);
+      })
+      .catch(err => console.log('Что-то пошло не так', err))
+      .finally(() => {
         profilePopup.closePopup();
         profilePopup.closeWaiting();
-      })
-      .catch(err => console.log('Что-то пошло не так', err));
+      });
   });
 const cardPopup = new PopupWithForm('#add-Form',
   (event) => {
@@ -146,13 +148,14 @@ btnAvatar.addEventListener('click', () => {
     api.changeAvatar(link)
       .then(res => {
         profileInfo.setInfo(res);
+      })
+      .catch(err => console.log('Что то пошло не так', err))
+      .finally(() => {
         avatarPopup.resetPopup();
         avatarPopup.closeWaiting();
         avatarPopup.closePopup()
         avatarPopupValidator.disableButton();
-      })
-      .catch(err => console.log('Что то пошло не так', err))
-
+      });
   })
   avatarPopup.openPopup();
 });
