@@ -12,26 +12,27 @@ import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Api from '../components/Api.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
+
 let userId;
 
 
 // Создание Апи
 const api = new Api({
-  baseURL:'https://nomoreparties.co/v1/cohort-41',
+  baseURL: 'https://nomoreparties.co/v1/cohort-41',
   headers: key
 });
 
 
-api.getProfileinfo()
-  .then(data => {
-    userId = data._id;
-    profileInfo.setInfo(data);
-  })
-  .catch(err => console.log('что-то пошло не так', err));
+//Загрузка Профиля и карточек
+Promise.all([
+    api.getProfileinfo(),
+    api.getCardInfo()
+  ]).then(([userData, cards]) => {
+    userId = userData._id;
+    profileInfo.setInfo(userData);
+    section.renderItems(cards);
+  }).catch(err => console.log('что-то пошло не так', err));
 
-api.getCardInfo().then(data => {
-  section.renderItems(data);
-}).catch(err => console.log('что-то пошло не так', err));
 
 // Создание попапов
 const profilePopup = new PopupWithForm('#edit-form',
