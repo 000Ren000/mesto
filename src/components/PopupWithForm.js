@@ -5,6 +5,7 @@ export default class PopupWithForm extends Popup {
     super(container);
     this._sender = sender;
     this._inputList = this._form.querySelectorAll('.edit-form__input');
+    this._btnSubmit = this._form.querySelector('.edit-form__button-save');
   }
 
   getInputValues(){
@@ -27,5 +28,11 @@ export default class PopupWithForm extends Popup {
   closePopup() {
     super.closePopup(this._container);
     this.resetPopup();
+  }
+  showWaiting() {
+    this._btnSubmit.textContent = 'Сохранение...';
+  }
+  closeWaiting() {
+    this._btnSubmit.textContent = 'Сохранить';
   }
 }

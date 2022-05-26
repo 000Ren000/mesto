@@ -37,10 +37,14 @@ cardApi.getCardInfo().then(data => {
 const profilePopup = new PopupWithForm('#edit-form',
   (evt) => {
     evt.preventDefault();
+    profilePopup.showWaiting();
     profileApi.setProfileInfo(profilePopup.getInputValues())
-      .then(res => profileInfo.setInfo(res))
+      .then(res => {
+        profileInfo.setInfo(res);
+        profilePopup.closePopup();
+        profilePopup.closeWaiting();
+      })
       .catch(err => console.log('Что-то пошло не так', err));
-    profilePopup.closePopup();
   });
 const cardPopup = new PopupWithForm('#add-Form',
   (event) => {
@@ -135,16 +139,17 @@ btnAddCard.addEventListener('click', () => cardPopup.openPopup());
 btnAvatar.addEventListener('click', () => {
   avatarPopup.setSubmitAction((evt) => {
     evt.preventDefault();
-
-    //todo <=====  Обработчик Аватара
     const link = avatarPopup.getInputValues().link;
+    avatarPopup.showWaiting();
     profileApi.changeAvatar(link)
       .then(res => {
         profileInfo.setInfo(res);
         avatarPopup.resetPopup();
+        avatarPopup.closeWaiting();
+        avatarPopup.closePopup()
       })
       .catch(err => console.log('Что то пошло не так', err))
-    avatarPopup.closePopup()
+
   })
   avatarPopup.openPopup();
 });
