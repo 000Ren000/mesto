@@ -41,10 +41,10 @@ const profilePopup = new PopupWithForm('#edit-form',
     api.setProfileInfo(profilePopup.getInputValues())
       .then(res => {
         profileInfo.setInfo(res);
+        profilePopup.closePopup();
       })
       .catch(err => console.log('Что-то пошло не так', err))
       .finally(() => {
-        profilePopup.closePopup();
         profilePopup.closeWaiting();
       });
   });
@@ -148,13 +148,13 @@ btnAvatar.addEventListener('click', () => {
     api.changeAvatar(link)
       .then(res => {
         profileInfo.setInfo(res);
+        avatarPopup.resetPopup();
+        avatarPopup.closePopup()
+        avatarPopupValidator.disableButton();
       })
       .catch(err => console.log('Что то пошло не так', err))
       .finally(() => {
-        avatarPopup.resetPopup();
         avatarPopup.closeWaiting();
-        avatarPopup.closePopup()
-        avatarPopupValidator.disableButton();
       });
   })
   avatarPopup.openPopup();
