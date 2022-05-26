@@ -61,3 +61,5 @@ export const key = {
   authorization: '2e1e6251-c43e-48e5-b292-2b34f8f03df1',
   'Content-Type': 'application/json'
 }
+export const btnAvatar = document.querySelector('.profile__avatar-container');
+export const popupAvatar = document.querySelector('#popup-avatar');

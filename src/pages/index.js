@@ -5,7 +5,7 @@ import {FormValidator} from '../components/FormValidator.js';
 import {
   initialCards, param, btnEditProfile, btnAddCard,
   profilePopupName, profilePopupProfession,
-  profPopup, popupCard, profileSelectors, key
+  profPopup, popupCard, profileSelectors, key, btnAvatar, popupAvatar
 } from '../scripts/utils.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from '../components/UserInfo.js';
@@ -55,7 +55,7 @@ const cardPopup = new PopupWithForm('#add-Form',
   });
 const imgPopup = new PopupWithImage('#image-popup');
 const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
-const popupWithAvatar = new PopupWithAvatar('#popup-avatar');
+const avatarPopup = new PopupWithConfirmation('#popup-avatar');
 
 
 const profileInfo = new UserInfo (profileSelectors);
@@ -71,12 +71,16 @@ const section = new Section({
 profilePopup.setEventListener();
 cardPopup.setEventListener();
 imgPopup.setEventListener();
+avatarPopup.setEventListener();
 
 //Создание валидации
 const profilePopupValidator = new FormValidator(param, profPopup);
 profilePopupValidator.enableValidation();
 const cardPopupValitator = new FormValidator(param, popupCard);
 cardPopupValitator.enableValidation();
+const avatarPopupValidator = new FormValidator(param, popupAvatar);
+avatarPopupValidator.enableValidation();
+
 
 const fillFields = () => {
   profilePopupName.value = profileInfo.getInfo().name;
@@ -124,12 +128,17 @@ const createCard = (item) => {
 fillFields();
 
 //Кнопки на сайте
-btnEditProfile.addEventListener('click', function (){
+btnEditProfile.addEventListener('click', () => {
   fillFields();
   profilePopup.openPopup();
 });
-btnAddCard.addEventListener('click', function () {
-  cardPopup.openPopup();
+btnAddCard.addEventListener('click',  () => cardPopup.openPopup());
+btnAvatar.addEventListener('click', () => {
+  avatarPopup.setSubmitAction((evt) => {
+    evt.preventDefault();
+    console.log('Hey');
+    avatarPopup.closePopup()
+  })
+  avatarPopup.openPopup();
 });
-
 
