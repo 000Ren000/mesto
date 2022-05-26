@@ -3,7 +3,7 @@ import Popup from './Popup.js';
 export default class PopupWithConfirmation extends Popup {
   constructor(selector) {
     super(selector);
-    // this._sender = sender;
+     this._inputList = this._form.querySelectorAll('.edit-form__input');
   }
 
   setSubmitAction(submitAction) {
@@ -24,4 +24,12 @@ export default class PopupWithConfirmation extends Popup {
     this._form.removeEventListener('submit', this._handleSubmitAction);
   }
 
+  getInputValues(){
+    this._formValues = {};
+    this._inputList.forEach(input => this._formValues[input.name] = input.value);
+    return this._formValues;
+  }
+  resetPopup() {
+    this._form.reset();
+  }
 }

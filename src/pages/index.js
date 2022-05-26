@@ -12,7 +12,6 @@ import UserInfo from '../components/UserInfo.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import Api from '../components/Api.js';
 import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
-import {PopupWithAvatar} from '../components/PopupWithAvatar.js';
 
 // Создание Апи
 const profileApi = new Api({
@@ -58,7 +57,7 @@ const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
 const avatarPopup = new PopupWithConfirmation('#popup-avatar');
 
 
-const profileInfo = new UserInfo (profileSelectors);
+const profileInfo = new UserInfo(profileSelectors);
 
 
 //Вставка в разметку
@@ -132,11 +131,19 @@ btnEditProfile.addEventListener('click', () => {
   fillFields();
   profilePopup.openPopup();
 });
-btnAddCard.addEventListener('click',  () => cardPopup.openPopup());
+btnAddCard.addEventListener('click', () => cardPopup.openPopup());
 btnAvatar.addEventListener('click', () => {
   avatarPopup.setSubmitAction((evt) => {
     evt.preventDefault();
-    console.log('Hey');
+
+    //todo <=====  Обработчик Аватара
+    const link = avatarPopup.getInputValues().link;
+    profileApi.changeAvatar(link)
+      .then(res => {
+        profileInfo.setInfo(res);
+        avatarPopup.resetPopup();
+      })
+      .catch(err => console.log('Что то пошло не так', err))
     avatarPopup.closePopup()
   })
   avatarPopup.openPopup();

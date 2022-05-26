@@ -44,6 +44,19 @@ export default class Api {
       });
   }
 
+  changeAvatar(avatar) {
+    return fetch(this._baseURL+`/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        "avatar": avatar,
+      })
+    }).then(res => {
+      if (res.ok) return res.json();
+      else return Promise.reject(`Ошибка: ${res.status}`);
+    });
+  }
+
   setNewCardInfo({name, link}) {
     return fetch(this._baseURL, {
       method: 'POST',
@@ -60,7 +73,7 @@ export default class Api {
   }
 
   deleteCard(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-41/cards/${cardId}`, {
+    return fetch(this._baseURL+`/${cardId}`, {
       method: 'DELETE',
       headers: this._headers
     }).then(res => {
@@ -70,7 +83,7 @@ export default class Api {
   }
 
   likedCard(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-41/cards/${cardId}/likes`, {
+    return fetch(this._baseURL+`/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers
     }).then(res => {
@@ -80,7 +93,7 @@ export default class Api {
   }
 
   unlikedCard(cardId) {
-    return fetch(`https://mesto.nomoreparties.co/v1/cohort-41/cards/${cardId}/likes`, {
+    return fetch(this._baseURL+`/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers
     }).then(res => {
@@ -88,4 +101,6 @@ export default class Api {
       else return Promise.reject(`Ошибка: ${res.status}`);
     });
   }
+
+
 }
