@@ -133,6 +133,7 @@ fillFields();
 //Кнопки на сайте
 btnEditProfile.addEventListener('click', () => {
   fillFields();
+  profilePopupValidator.disableButton();
   profilePopup.openPopup();
 });
 btnAddCard.addEventListener('click', () => cardPopup.openPopup());
@@ -147,6 +148,7 @@ btnAvatar.addEventListener('click', () => {
         avatarPopup.resetPopup();
         avatarPopup.closeWaiting();
         avatarPopup.closePopup()
+        avatarPopupValidator.disableButton();
       })
       .catch(err => console.log('Что то пошло не так', err))
 
