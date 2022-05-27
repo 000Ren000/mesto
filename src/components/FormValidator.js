@@ -7,6 +7,8 @@ export class FormValidator {
     this._inputErrorClass = data.inputErrorClass;
     this._errorClass = data.errorClass;
     this._form = form.querySelector(data.formSelector);
+    this._button = this._form.querySelector(this._submitButtonSelector);
+    this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
   }
 
   //Проверка поля на валидность
@@ -31,36 +33,34 @@ export class FormValidator {
   }
 
   //Деактивация енопки
-  _deactivateButton() {
-    const button = this._form.querySelector(this._submitButtonSelector);
+  _toggleButtonState() {
     if (!this._form.checkValidity()) {
-      button.setAttribute('disabled', 'disabled');
-      button.classList.add(this._inactiveButtonClass);
+      this._button.setAttribute('disabled', 'disabled');
+      this._button.classList.add(this._inactiveButtonClass);
     } else {
-      button.removeAttribute('disabled');
-      button.classList.remove(this._inactiveButtonClass);
+      this._button.removeAttribute('disabled');
+      this._button.classList.remove(this._inactiveButtonClass);
     }
   }
 
 
   //Действия со всеми инпутами на форме
-  _eventInputsForm() {
+  _setEventListeners() {
     if (this._form !== null) {
-      const _inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
-      this._deactivateButton();
+      this._toggleButtonState();
       //Добавление слушателей на инпут
-      _inputList.forEach(input => input.addEventListener('input', () => {
+      this._inputList.forEach(input => input.addEventListener('input', () => {
         this._handleFormInput(input);
-        this._deactivateButton();
+        this._toggleButtonState();
       }));
     }
   }
 
   disableButton(){
-    this._deactivateButton();
+    this._toggleButtonState();
   }
 
   enableValidation() {
-    this._eventInputsForm();
+    this._setEventListeners();
   }
 }

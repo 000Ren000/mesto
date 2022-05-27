@@ -52,16 +52,12 @@ const profilePopup = new PopupWithForm('#edit-form',
 const cardPopup = new PopupWithForm('#add-Form',
   (event) => {
     event.preventDefault();
-    cardPopup.showWaiting();
     api.setNewCardInfo(cardPopup.getInputValues())
       .then(res => {
         section.addItem(res, true);
-        cardPopup.closePopup();
-        cardPopupValitator.disableButton();
-      }).catch(err => console.log('что-то пошло не так', err))
-      .finally(() => {
-        cardPopup.closeWaiting();
-      });
+      }).catch(err => console.log('что-то пошло не так', err));
+    cardPopup.closePopup();
+    cardPopupValitator.disableButton();
   });
 const imgPopup = new PopupWithImage('#image-popup');
 const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
@@ -109,16 +105,14 @@ const createCard = (item) => {
       popupWithConfirmation.setSubmitAction(
         (evt) => {
           evt.preventDefault();
-          popupWithConfirmation.showWaiting();
           api.deleteCard(item._id).then(res => {
             console.log(`Карточка ${item.name}`, res.message);
             card.removeCard();
-            popupWithConfirmation.closePopup();
           })
             .catch(err => {
               console.log('Что-то пошло не так', err);
-            })
-            .finally(() => popupWithConfirmation.closeWaiting());
+            });
+          popupWithConfirmation.closePopup();
         });
       popupWithConfirmation.openPopup();
     },
