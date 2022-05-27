@@ -68,8 +68,7 @@ const avatarPopup = new PopupWithForm('#popup-avatar',
     api.changeAvatar(link)
       .then(res => {
         profileInfo.setInfo(res);
-        avatarPopup.closePopup()
-        avatarPopupValidator.disableButton();
+        avatarPopup.closePopup();
       })
       .catch(err => console.log('Что то пошло не так', err))
       .finally(() => {
@@ -162,6 +161,7 @@ btnAddCard.addEventListener('click', () => {
   cardPopup.openPopup()
 });
 btnAvatar.addEventListener('click', () => {
+  avatarPopupValidator.disableButton();
   avatarPopup.openPopup();
 });
 
