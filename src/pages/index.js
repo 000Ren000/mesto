@@ -106,8 +106,9 @@ avatarPopupValidator.enableValidation();
 
 
 const fillFields = () => {
-  profilePopupName.value = profileInfo.getInfo().name;
-  profilePopupProfession.value = profileInfo.getInfo().info;
+  const {name, info} = profileInfo.getInfo();
+  profilePopupName.value = name;
+  profilePopupProfession.value = info;
 }
 
 
