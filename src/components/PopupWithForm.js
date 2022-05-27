@@ -29,9 +29,10 @@ export default class PopupWithForm extends Popup {
     this.resetPopup();
   }
   showWaiting() {
+    this._oldName = this._btnSubmit.textContent;
     this._btnSubmit.textContent = 'Сохранение...';
   }
   closeWaiting() {
-    this._btnSubmit.textContent = 'Сохранить';
+    this._btnSubmit.textContent = this._oldName;
   }
 }

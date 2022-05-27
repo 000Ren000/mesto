@@ -1,5 +1,3 @@
-import {exportTypedArrayMethod} from 'core-js/internals/array-buffer-view-core.js';
-
 export default class Api {
   constructor(option) {
     this._baseURL = option.baseURL;
