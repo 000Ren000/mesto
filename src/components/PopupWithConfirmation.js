@@ -13,35 +13,25 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListener() {
     super.setEventListener();
-    this._form.addEventListener('submit', this._handleSubmitAction);
+    this._form.addEventListener('submit', () => this._handleSubmitAction);
   }
 
-  openPopup(item, card) {
+  openPopup() {
     super.openPopup();
-    // this._setEventListener(item, card)
+    // this.setEventListener()
   }
 
-  closePopup(item, card) {
+  closePopup() {
     super.closePopup();
     this._form.removeEventListener('submit', this._handleSubmitAction);
   }
 
-  getInputValues() {
-    this._formValues = {};
-    this._inputList.forEach(input => this._formValues[input.name] = input.value);
-    return this._formValues;
-  }
-
-  resetPopup() {
-    this._form.reset();
-  }
 
   showWaiting() {
-    this._btnSubmit.textContent = 'Сохранение...';
+    this._btnSubmit.textContent = 'Удаление...';
   }
 
   closeWaiting() {
-    this._btnSubmit.textContent = 'Сохранить';
+    this._btnSubmit.textContent = 'Да';
   }
-
 }

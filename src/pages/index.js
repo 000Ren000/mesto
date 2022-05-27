@@ -57,7 +57,6 @@ const cardPopup = new PopupWithForm('#add-Form',
         section.addItem(res, true);
       }).catch(err => console.log('что-то пошло не так', err));
     cardPopup.closePopup();
-    cardPopupValitator.disableButton();
   });
 const imgPopup = new PopupWithImage('#image-popup');
 const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
@@ -158,7 +157,10 @@ btnEditProfile.addEventListener('click', () => {
   profilePopupValidator.disableButton();
   profilePopup.openPopup();
 });
-btnAddCard.addEventListener('click', () => cardPopup.openPopup());
+btnAddCard.addEventListener('click', () => {
+  cardPopupValitator.disableButton();
+  cardPopup.openPopup()
+});
 btnAvatar.addEventListener('click', () => {
   avatarPopup.openPopup();
 });

@@ -1,9 +1,9 @@
 import Popup from './Popup.js';
 
 export default class PopupWithForm extends Popup {
-  constructor(container, sender) {
+  constructor(container, handleSubmit) {
     super(container);
-    this._sender = sender;
+    this._handleSubmit = handleSubmit;
     this._inputList = this._form.querySelectorAll('.edit-form__input');
     this._btnSubmit = this._form.querySelector('.edit-form__button-save');
   }
@@ -17,7 +17,7 @@ export default class PopupWithForm extends Popup {
 
   setEventListener() {
     super.setEventListener();
-    this._form.addEventListener('submit', this._sender);
+    this._form.addEventListener('submit', this._handleSubmit);
   }
 
    resetPopup() {
