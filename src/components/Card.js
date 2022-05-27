@@ -53,7 +53,7 @@ export class Card {
       _cardImage.alt = this._name;
       this._card.querySelector('.card__title').textContent = this._name;
       this.refreshCounter(this._likes, this.isLiked());
-      this._setEventListeners(this._card);
+      this._setEventListeners();
       if (this._id === this._myId) this._btnRemoveCard.classList.remove('card__trash_hidden');
       return this._card;
     }
