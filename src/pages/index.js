@@ -25,13 +25,13 @@ const api = new Api({
 
 //Загрузка Профиля и карточек
 Promise.all([
-    api.getProfileinfo(),
-    api.getCardInfo()
-  ]).then(([userData, cards]) => {
-    userId = userData._id;
-    profileInfo.setInfo(userData);
-    section.renderItems(cards);
-  }).catch(err => console.log('что-то пошло не так', err));
+  api.getProfileinfo(),
+  api.getCardInfo()
+]).then(([userData, cards]) => {
+  userId = userData._id;
+  profileInfo.setInfo(userData);
+  section.renderItems(cards);
+}).catch(err => console.log('что-то пошло не так', err));
 
 
 // Создание попапов
@@ -61,7 +61,24 @@ const cardPopup = new PopupWithForm('#add-Form',
   });
 const imgPopup = new PopupWithImage('#image-popup');
 const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
-const avatarPopup = new PopupWithConfirmation('#popup-avatar');
+const avatarPopup = new PopupWithForm('#popup-avatar',
+  (evt) => {
+    evt.preventDefault();
+    const link = avatarPopup.getInputValues().link;
+    avatarPopup.showWaiting();
+    api.changeAvatar(link)
+      .then(res => {
+        profileInfo.setInfo(res);
+        avatarPopup.resetPopup();
+        avatarPopup.closePopup()
+        avatarPopupValidator.disableButton();
+      })
+      .catch(err => console.log('Что то пошло не так', err))
+      .finally(() => {
+        avatarPopup.closeWaiting();
+      });
+  }
+);
 
 
 const profileInfo = new UserInfo(profileSelectors);
@@ -142,22 +159,6 @@ btnEditProfile.addEventListener('click', () => {
 });
 btnAddCard.addEventListener('click', () => cardPopup.openPopup());
 btnAvatar.addEventListener('click', () => {
-  avatarPopup.setSubmitAction((evt) => {
-    evt.preventDefault();
-    const link = avatarPopup.getInputValues().link;
-    avatarPopup.showWaiting();
-    api.changeAvatar(link)
-      .then(res => {
-        profileInfo.setInfo(res);
-        avatarPopup.resetPopup();
-        avatarPopup.closePopup()
-        avatarPopupValidator.disableButton();
-      })
-      .catch(err => console.log('Что то пошло не так', err))
-      .finally(() => {
-        avatarPopup.closeWaiting();
-      });
-  })
   avatarPopup.openPopup();
 });
 
