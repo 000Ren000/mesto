@@ -121,14 +121,15 @@ const createCard = (item) => {
       popupWithConfirmation.setSubmitAction(
         (evt) => {
           evt.preventDefault();
+          popupWithConfirmation.showWaiting();
           api.deleteCard(item._id).then(res => {
             console.log(`Карточка ${item.name}`, res.message);
             card.removeCard();
+            popupWithConfirmation.closePopup();
           })
             .catch(err => {
               console.log('Что-то пошло не так', err);
-            });
-          popupWithConfirmation.closePopup();
+            }).finally(() => popupWithConfirmation.closeWaiting());
         });
       popupWithConfirmation.sendSubmit();
       popupWithConfirmation.openPopup();
