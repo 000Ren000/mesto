@@ -59,7 +59,7 @@ const cardPopup = new PopupWithForm('#add-Form',
     cardPopup.closePopup();
   });
 const imgPopup = new PopupWithImage('#image-popup');
-const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation');
+const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation', );
 const avatarPopup = new PopupWithForm('#popup-avatar',
   (evt) => {
     evt.preventDefault();
@@ -109,7 +109,6 @@ const fillFields = () => {
   profilePopupProfession.value = info;
 }
 
-
 //Создание карточек
 const createCard = (item) => {
   const card = new Card(item, '#photo__card',
@@ -118,6 +117,7 @@ const createCard = (item) => {
       imgPopup.openPopup(link, name);
     },
     () => {
+
       popupWithConfirmation.setSubmitAction(
         (evt) => {
           evt.preventDefault();
@@ -130,6 +130,7 @@ const createCard = (item) => {
             });
           popupWithConfirmation.closePopup();
         });
+      popupWithConfirmation.sendSubmit();
       popupWithConfirmation.openPopup();
     },
     () => {

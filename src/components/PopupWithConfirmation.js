@@ -4,7 +4,6 @@ export default class PopupWithConfirmation extends Popup {
   constructor(selector) {
     super(selector);
     this._btnSubmit = this._form.querySelector('.edit-form__button-save');
-
   }
 
   setSubmitAction(submitAction) {
@@ -13,9 +12,11 @@ export default class PopupWithConfirmation extends Popup {
 
   setEventListener() {
     super.setEventListener();
-    this._form.addEventListener('submit', () => this._handleSubmitAction);
   }
 
+  sendSubmit() {
+    this._form.addEventListener('submit',  this._handleSubmitAction);
+  }
   openPopup() {
     super.openPopup();
     // this.setEventListener()
