@@ -25,7 +25,7 @@ export default class PopupWithForm extends Popup {
   }
 
   closePopup() {
-    super.closePopup(this._container);
+    super.closePopup();
     this.resetPopup();
   }
   showWaiting() {
