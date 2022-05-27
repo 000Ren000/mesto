@@ -19,7 +19,6 @@ export default class PopupWithConfirmation extends Popup {
   }
   openPopup() {
     super.openPopup();
-    // this.setEventListener()
   }
 
   closePopup() {
