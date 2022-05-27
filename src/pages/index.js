@@ -68,7 +68,6 @@ const avatarPopup = new PopupWithForm('#popup-avatar',
     api.changeAvatar(link)
       .then(res => {
         profileInfo.setInfo(res);
-        avatarPopup.resetPopup();
         avatarPopup.closePopup()
         avatarPopupValidator.disableButton();
       })
