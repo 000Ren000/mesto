@@ -95,6 +95,7 @@ profilePopup.setEventListener();
 cardPopup.setEventListener();
 imgPopup.setEventListener();
 avatarPopup.setEventListener();
+popupWithConfirmation.setEventListener();
 
 //Создание валидации
 const profilePopupValidator = new FormValidator(param, profPopup);

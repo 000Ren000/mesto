@@ -3,7 +3,6 @@ import Popup from './Popup.js';
 export default class PopupWithConfirmation extends Popup {
   constructor(selector) {
     super(selector);
-    this._inputList = this._form.querySelectorAll('.edit-form__input');
     this._btnSubmit = this._form.querySelector('.edit-form__button-save');
 
   }
@@ -12,14 +11,14 @@ export default class PopupWithConfirmation extends Popup {
     this._handleSubmitAction = submitAction;
   }
 
-  _setEventListener() {
+  setEventListener() {
     super.setEventListener();
     this._form.addEventListener('submit', this._handleSubmitAction);
   }
 
   openPopup(item, card) {
     super.openPopup();
-    this._setEventListener(item, card)
+    // this._setEventListener(item, card)
   }
 
   closePopup(item, card) {
