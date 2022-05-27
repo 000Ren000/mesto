@@ -31,7 +31,7 @@ export default class PopupWithConfirmation extends Popup {
     this._btnSubmit.textContent = 'Удаление...';
   }
 
-  closeWaiting() {
+  hideWaiting() {
     this._btnSubmit.textContent = 'Да';
   }
 }

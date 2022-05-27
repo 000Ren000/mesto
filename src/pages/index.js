@@ -46,17 +46,19 @@ const profilePopup = new PopupWithForm('#edit-form',
       })
       .catch(err => console.log('Что-то пошло не так', err))
       .finally(() => {
-        profilePopup.closeWaiting();
+        profilePopup.hideWaiting();
       });
   });
 const cardPopup = new PopupWithForm('#add-Form',
   (event) => {
     event.preventDefault();
+    cardPopup.showWaiting();
     api.setNewCardInfo(cardPopup.getInputValues())
       .then(res => {
         section.addItem(res, true);
-      }).catch(err => console.log('что-то пошло не так', err));
-    cardPopup.closePopup();
+        cardPopup.closePopup();
+      }).catch(err => console.log('что-то пошло не так', err))
+      .finally(() => cardPopup.hideWaiting());
   });
 const imgPopup = new PopupWithImage('#image-popup');
 const popupWithConfirmation = new PopupWithConfirmation('#popup-confirmation', );
@@ -72,7 +74,7 @@ const avatarPopup = new PopupWithForm('#popup-avatar',
       })
       .catch(err => console.log('Что то пошло не так', err))
       .finally(() => {
-        avatarPopup.closeWaiting();
+        avatarPopup.hideWaiting();
       });
   }
 );
@@ -129,7 +131,7 @@ const createCard = (item) => {
           })
             .catch(err => {
               console.log('Что-то пошло не так', err);
-            }).finally(() => popupWithConfirmation.closeWaiting());
+            }).finally(() => popupWithConfirmation.hideWaiting());
         });
       popupWithConfirmation.sendSubmit();
       popupWithConfirmation.openPopup();
