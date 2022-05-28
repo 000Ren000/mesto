@@ -32,7 +32,7 @@ export default class PopupWithForm extends Popup {
     this._oldName = this._btnSubmit.textContent;
     this._btnSubmit.textContent = 'Сохранение...';
   }
-  closeWaiting() {
+  hideWaiting() {
     this._btnSubmit.textContent = this._oldName;
   }
 }
