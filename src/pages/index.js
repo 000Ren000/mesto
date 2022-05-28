@@ -15,13 +15,11 @@ import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 
 let userId;
 
-
 // Создание Апи
 const api = new Api({
   baseURL: 'https://nomoreparties.co/v1/cohort-41',
   headers: key
 });
-
 
 //Загрузка Профиля и карточек
 Promise.all([
@@ -133,7 +131,7 @@ const createCard = (item) => {
               console.log('Что-то пошло не так', err);
             }).finally(() => popupWithConfirmation.hideWaiting());
         });
-      popupWithConfirmation.sendSubmit();
+      popupWithConfirmation.addSubmit();
       popupWithConfirmation.openPopup();
     },
     () => {

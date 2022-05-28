@@ -10,7 +10,7 @@ export default class PopupWithConfirmation extends Popup {
     this._handleSubmitAction = submitAction;
   }
 
-  sendSubmit() {
+  addSubmit() {
     this._form.addEventListener('submit',  this._handleSubmitAction);
   }
 
